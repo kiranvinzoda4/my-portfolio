@@ -1,0 +1,10 @@
+
+> my-portfolio@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://10.153.236.29:3001
+✓ Ready in 1131ms
+
+[?25h

@@ -1,0 +1,84 @@
+
+> my-portfolio@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.153.236.29:3000
+✓ Ready in 624ms
+
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/#contact" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <Home>
+                    <Navbar>
+                    <section>
+                    <section>
+                    <section>
+                    <section>
+                    <section>
+                    <Contact description={"Have a p..."} info={[...]}>
+                      <section id="contact" className="px-6 py-24">
+                        <div className="mx-auto ma...">
+                          <SectionHeader>
+                          <div className="grid gap-1...">
+                            <div>
+                            <form onSubmit={function handleSubmit} className="space-y-4">
+                              <input
+                                type="text"
+                                name="name"
+                                placeholder="Your Name"
+                                required={true}
+                                className="w-full rounded-xl border border-card-border bg-card px-4 py-3 text-sm text-..."
+-                               fdprocessedid="2ijd6s"
+                              >
+                              <input
+                                type="email"
+                                name="email"
+                                placeholder="Your Email"
+                                required={true}
+                                className="w-full rounded-xl border border-card-border bg-card px-4 py-3 text-sm text-..."
+-                               fdprocessedid="0tqix"
+                              >
+                              <textarea>
+                              <button
+                                type="submit"
+                                className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3 text-sm fon..."
+-                               fdprocessedid="h1zgwi"
+                              >
+                    ...
+                ...
+              ...
+ 
+    at <unknown> (file://c:/kiran/project/personal/portfolio/my-portfolio/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+    at runWithFiberInDEV (file://c:/kiran/project/personal/portfolio/my-portfolio/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at emitPendingHydrationWarnings (file://c:/kiran/project/personal/portfolio/my-portfolio/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3438:13)
+    at completeWork (file://c:/kiran/project/personal/portfolio/my-portfolio/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6885:102)
+    at runWithFiberInDEV (file://c:/kiran/project/personal/portfolio/my-portfolio/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:131)
+    at completeUnitOfWork (file://c:/kiran/project/personal/portfolio/my-portfolio/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (file://c:/kiran/project/personal/portfolio/my-portfolio/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://c:/kiran/project/personal/portfolio/my-portfolio/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (file://c:/kiran/project/personal/portfolio/my-portfolio/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (file://c:/kiran/project/personal/portfolio/my-portfolio/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://c:/kiran/project/personal/portfolio/my-portfolio/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://c:/kiran/project/personal/portfolio/my-portfolio/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64) (file://c:/kiran/project/personal/portfolio/my-portfolio/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+○ Compiling / ...
+ GET / 200 in 4.3s (next.js: 3.5s, application-code: 761ms)
