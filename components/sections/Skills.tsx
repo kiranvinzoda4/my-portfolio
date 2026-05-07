@@ -1,5 +1,7 @@
+"use client";
 import type { SkillCategory } from "@/types/portfolio";
 import { SectionHeader, SkillGroup } from "@/components/ui";
+import { FadeIn, StaggerContainer, SlideIn } from "@/components/motion";
 
 interface SkillsProps {
   categories: SkillCategory[];
@@ -7,14 +9,22 @@ interface SkillsProps {
 
 export default function Skills({ categories }: SkillsProps) {
   return (
-    <section id="skills" className="bg-section-alt px-6 py-28">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeader label="Skills" title="What I Work With" />
-        <div className="grid gap-8 md:grid-cols-3">
+    <section id="skills" className="relative px-6 py-28">
+      {/* Subtle background accent */}
+      <div className="pointer-events-none absolute inset-0 bg-section-alt" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-gradient-start/[0.03] blur-[100px]" />
+
+      <div className="relative mx-auto max-w-6xl">
+        <FadeIn>
+          <SectionHeader label="Skills" title="What I Work With" />
+        </FadeIn>
+        <StaggerContainer stagger={0.15} className="grid gap-8 md:grid-cols-3">
           {categories.map((cat) => (
-            <SkillGroup key={cat.title} {...cat} />
+            <SlideIn key={cat.title}>
+              <SkillGroup {...cat} />
+            </SlideIn>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import type { HeroData } from "@/types/portfolio";
 export const heroData: HeroData = {
   greeting: "Hello, I'm",
   name: "Kiran Vinzoda",
-  highlight: "Python Backend Developer",
+  highlight: "Backend Developer",
   tagline: "FastAPI · AI-Driven Systems · SaaS Architecture",
   profileImage: "/pic.jpg",
   description:

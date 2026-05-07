@@ -9,6 +9,7 @@ import {
   Contact,
   Footer,
 } from "@/components/sections";
+import ScrollProgress from "@/components/motion/ScrollProgress";
 import { navLinks } from "@/data/nav";
 import { heroData } from "@/data/hero";
 import { aboutData } from "@/data/about";
@@ -25,6 +26,7 @@ function Divider() {
 export default function Home() {
   return (
     <>
+      <ScrollProgress />
       <Navbar brand="KV" links={navLinks} />
       <Hero {...heroData} />
       <Divider />

@@ -1,14 +1,18 @@
+"use client";
 import type { AboutData } from "@/types/portfolio";
 import { SectionHeader, StatCard } from "@/components/ui";
+import { FadeIn, StaggerContainer, SlideIn } from "@/components/motion";
 import { FiCheck } from "react-icons/fi";
 
 export default function About({ intro, focusAreas, stats }: AboutData) {
   return (
     <section id="about" className="px-6 py-28">
       <div className="mx-auto max-w-6xl">
-        <SectionHeader label="About Me" title="Who I Am" />
+        <FadeIn>
+          <SectionHeader label="About Me" title="Who I Am" />
+        </FadeIn>
         <div className="grid items-start gap-16 md:grid-cols-5">
-          <div className="md:col-span-3">
+          <FadeIn direction="left" className="md:col-span-3">
             <p className="mb-6 text-base leading-relaxed text-muted">
               {intro}
             </p>
@@ -25,12 +29,14 @@ export default function About({ intro, focusAreas, stats }: AboutData) {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="flex flex-col gap-4 md:col-span-2">
+          </FadeIn>
+          <StaggerContainer stagger={0.1} className="flex flex-col gap-4 md:col-span-2">
             {stats.map((s) => (
-              <StatCard key={s.label} {...s} />
+              <SlideIn key={s.label}>
+                <StatCard {...s} />
+              </SlideIn>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </div>
     </section>

@@ -1,19 +1,54 @@
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { FiArrowDown } from "react-icons/fi";
 import type { HeroData } from "@/types/portfolio";
 import { SocialIcon } from "@/components/ui";
+import { MagneticHover } from "@/components/motion";
+
+const roles = ["Python Developer", "Backend Engineer", "Cloud & DevOps Engineer"];
 
 export default function Hero(props: HeroData) {
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoleIndex((i) => (i + 1) % roles.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden px-6 pt-20">
-      {/* Background gradient orbs — larger and more visible */}
-      <div className="pointer-events-none absolute -top-40 left-1/3 h-[500px] w-[500px] rounded-full bg-gradient-start/10 blur-[100px]" />
-      <div className="pointer-events-none absolute -bottom-40 right-1/4 h-[400px] w-[400px] rounded-full bg-gradient-end/8 blur-[100px]" />
+      {/* Animated grid background */}
+      <div className="grid-pattern pointer-events-none absolute inset-0" />
+
+      {/* Large gradient orbs for depth */}
+      <div className="pointer-events-none absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full bg-gradient-start/[0.08] blur-[120px]" />
+      <div className="pointer-events-none absolute -bottom-40 right-1/4 h-[500px] w-[500px] rounded-full bg-gradient-end/[0.06] blur-[120px]" />
+
+      {/* Floating accent orb */}
+      <motion.div
+        animate={{ y: [-20, 20, -20], x: [-10, 10, -10] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute right-[10%] top-[15%] h-40 w-40 rounded-full bg-gradient-to-r from-gradient-start/25 to-gradient-end/25 blur-3xl"
+      />
+      <motion.div
+        animate={{ y: [15, -15, 15], x: [10, -10, 10] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute bottom-[20%] left-[5%] h-32 w-32 rounded-full bg-gradient-mid/20 blur-3xl"
+      />
 
       <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
         {/* Text */}
         <div className="order-2 text-center md:order-1 md:text-left">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-success/20 bg-success/5 px-4 py-1.5">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-success/20 bg-success/5 px-4 py-1.5"
+          >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
@@ -21,36 +56,80 @@ export default function Hero(props: HeroData) {
             <span className="text-xs font-medium text-success">
               Available for opportunities
             </span>
-          </div>
+          </motion.div>
 
-          <p className="mb-3 text-sm font-medium tracking-widest text-muted uppercase">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mb-3 text-sm font-medium tracking-widest text-muted uppercase"
+          >
             {props.greeting}
-          </p>
-          <h1 className="mb-3 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-            {props.name}
-          </h1>
-          <h2 className="mb-4 bg-gradient-to-r from-gradient-start to-gradient-end bg-clip-text text-2xl font-bold text-transparent sm:text-3xl lg:text-4xl">
-            {props.highlight}
-          </h2>
+          </motion.p>
 
-          {/* Tagline as styled pills */}
-          <div className="mb-6 flex flex-wrap justify-center gap-2 md:justify-start">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-4 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl"
+          >
+            {props.name}
+          </motion.h1>
+
+          {/* Rotating role titles */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-5 h-10 sm:h-12"
+          >
+            <AnimatePresence mode="wait">
+              <motion.h2
+                key={roleIndex}
+                initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+                transition={{ duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
+                className="bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end bg-clip-text text-2xl font-bold text-transparent sm:text-3xl lg:text-4xl"
+              >
+                {roles[roleIndex]}
+              </motion.h2>
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Tagline pills */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mb-6 flex flex-wrap justify-center gap-2 md:justify-start"
+          >
             {props.tagline.split(" · ").map((tag) => (
               <span
                 key={tag}
-                className="rounded-lg border border-card-border bg-card px-3 py-1 font-mono text-xs text-muted"
+                className="rounded-lg border border-card-border bg-card-solid/60 px-3 py-1.5 font-mono text-xs text-muted backdrop-blur-sm"
               >
                 {tag}
               </span>
             ))}
-          </div>
+          </motion.div>
 
-          <p className="mb-6 max-w-lg text-base leading-relaxed text-muted">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="mb-6 max-w-lg text-base leading-relaxed text-muted"
+          >
             {props.description}
-          </p>
+          </motion.p>
 
           {props.quickWins && props.quickWins.length > 0 && (
-            <ul className="mb-8 flex max-w-lg flex-col gap-2.5 text-left">
+            <motion.ul
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="mb-8 flex max-w-lg flex-col gap-2.5 text-left"
+            >
               {props.quickWins.map((win) => (
                 <li
                   key={win}
@@ -74,59 +153,93 @@ export default function Hero(props: HeroData) {
                   {win}
                 </li>
               ))}
-            </ul>
+            </motion.ul>
           )}
 
-          <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
-            <a
-              href={props.cta.href}
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-gradient-start to-gradient-end px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-accent/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/40"
-            >
-              {props.cta.label}
-            </a>
-            <a
-              href={props.secondaryCta.href}
-              className="gradient-border rounded-xl px-7 py-3.5 text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 hover:text-accent"
-            >
-              {props.secondaryCta.label}
-            </a>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            className="flex flex-wrap items-center justify-center gap-4 md:justify-start"
+          >
+            <MagneticHover strength={0.15}>
+              <a
+                href={props.cta.href}
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-gradient-start to-gradient-end px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-accent-dark/30 transition-all duration-300 hover:shadow-xl hover:shadow-accent-dark/50"
+              >
+                <span className="absolute inset-0 bg-white/10 opacity-0 transition-opacity group-hover:opacity-100" />
+                <span className="relative">{props.cta.label}</span>
+              </a>
+            </MagneticHover>
+            <MagneticHover strength={0.15}>
+              <a
+                href={props.secondaryCta.href}
+                className="gradient-border inline-flex items-center gap-2 rounded-xl border border-card-border px-7 py-3.5 text-sm font-bold transition-all duration-300 hover:text-accent"
+              >
+                {props.secondaryCta.label}
+              </a>
+            </MagneticHover>
+          </motion.div>
 
-          <div className="mt-8 flex items-center justify-center gap-3 md:justify-start">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+            className="mt-8 flex items-center justify-center gap-3 md:justify-start"
+          >
             {props.socials.map((s) => (
               <SocialIcon key={s.id} {...s} />
             ))}
-          </div>
+          </motion.div>
         </div>
 
-        {/* Photo with glow */}
+        {/* Photo with PROMINENT animated glow */}
         {props.profileImage && (
-          <div className="order-1 flex justify-center md:order-2 md:justify-end">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+            className="order-1 flex justify-center md:order-2 md:justify-end"
+          >
             <div className="animate-float relative">
-              {/* Outer glow ring */}
-              <div className="animate-pulse-ring absolute -inset-6 rounded-full bg-gradient-to-r from-gradient-start to-gradient-end opacity-15 blur-2xl" />
+              {/* Outer pulsing glow ring */}
+              <div className="absolute -inset-8 animate-pulse-glow rounded-full bg-gradient-to-r from-gradient-start to-gradient-end opacity-20 blur-3xl" />
+
+              {/* Rotating gradient ring */}
+              <div className="animate-gradient absolute -inset-4 rounded-full bg-gradient-to-r from-gradient-start via-gradient-end to-gradient-start opacity-40 blur-2xl" />
+
               {/* Inner glow */}
-              <div className="animate-gradient absolute -inset-3 rounded-full bg-gradient-to-r from-gradient-start via-gradient-end to-gradient-start opacity-30 blur-xl" />
+              <div className="absolute -inset-2 rounded-full bg-accent/20 blur-xl" />
+
+              {/* Photo */}
               <Image
                 src={props.profileImage}
                 alt={props.name}
                 width={320}
                 height={320}
-                className="relative h-56 w-56 rounded-full border-2 border-accent/20 object-cover shadow-[0_0_60px_rgba(99,102,241,0.2)] sm:h-72 sm:w-72 lg:h-80 lg:w-80"
+                className="relative h-56 w-56 rounded-full border-2 border-accent/30 object-cover shadow-[0_0_80px_rgba(99,102,241,0.25)] sm:h-72 sm:w-72 lg:h-80 lg:w-80"
                 priority
               />
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
 
-      <a
+      <motion.a
         href="#about"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-muted transition-colors hover:text-accent"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted transition-colors hover:text-accent"
         aria-label="Scroll down"
       >
-        <FiArrowDown size={24} />
-      </a>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <FiArrowDown size={24} />
+        </motion.div>
+      </motion.a>
     </section>
   );
 }

@@ -9,11 +9,11 @@ export default function TimelineItem({
   return (
     <div className="relative mb-10 pl-2 last:mb-0">
       {/* Dot */}
-      <div className="absolute -left-[41px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-r from-gradient-start to-gradient-end">
+      <div className="absolute -left-[41px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-r from-gradient-start to-gradient-end shadow-md shadow-accent-dark/30">
         <div className="h-2 w-2 rounded-full bg-background" />
       </div>
       {/* Card */}
-      <div className="rounded-xl border border-card-border bg-card p-5 transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent-glow">
+      <div className="rounded-xl border border-card-border bg-card-solid/80 p-5 backdrop-blur-sm transition-all duration-300 hover:border-accent/20 hover:shadow-lg hover:shadow-accent-glow">
         <div className="mb-3 flex flex-wrap items-center gap-3">
           <span className="rounded-lg bg-accent-bg px-3 py-1 text-xs font-semibold text-accent">
             {period}

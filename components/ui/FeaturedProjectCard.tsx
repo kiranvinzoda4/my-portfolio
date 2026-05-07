@@ -12,23 +12,22 @@ export default function FeaturedProjectCard({
   trustedBy,
 }: Project) {
   return (
-    <div className="group relative overflow-hidden rounded-3xl border border-accent/20 bg-card shadow-xl shadow-accent-glow">
+    <div className="group relative overflow-hidden rounded-3xl border border-accent/15 bg-card-solid shadow-2xl shadow-accent-glow/50">
       {/* Gradient top bar */}
-      <div className="h-1.5 bg-gradient-to-r from-gradient-start via-gradient-end to-gradient-start" />
+      <div className="h-1 bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end" />
 
       {/* Background glow */}
-      <div className="pointer-events-none absolute -right-32 -top-32 h-64 w-64 rounded-full bg-gradient-start/5 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-32 -left-32 h-64 w-64 rounded-full bg-gradient-end/5 blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 -top-32 h-64 w-64 rounded-full bg-gradient-start/[0.04] blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-32 -left-32 h-64 w-64 rounded-full bg-gradient-end/[0.04] blur-3xl" />
 
       <div className="relative p-6 sm:p-8 lg:p-10">
-        {/* Header row */}
         <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
           <div>
             <div className="mb-3 flex items-center gap-3">
               <span className="rounded-lg bg-gradient-to-r from-gradient-start to-gradient-end px-3 py-1 text-xs font-bold tracking-wider text-white uppercase">
                 Featured Project
               </span>
-              <span className="rounded-lg bg-blue-500/10 px-2.5 py-1 text-xs font-bold tracking-wider text-blue-500 uppercase">
+              <span className="rounded-lg bg-blue-500/10 px-2.5 py-1 text-xs font-bold tracking-wider text-blue-400 uppercase">
                 SaaS
               </span>
               <span className="flex items-center gap-1 rounded-lg bg-success/10 px-2.5 py-1 text-xs font-bold text-success">
@@ -48,12 +47,9 @@ export default function FeaturedProjectCard({
           </div>
         </div>
 
-        {/* Two-column content */}
         <div className="grid gap-8 lg:grid-cols-5">
-          {/* Left — description + highlights */}
           <div className="lg:col-span-3">
             <p className="mb-6 leading-relaxed text-muted">{description}</p>
-
             {highlights && highlights.length > 0 && (
               <div className="space-y-3">
                 <h5 className="text-sm font-bold uppercase tracking-wider text-foreground">
@@ -65,9 +61,7 @@ export default function FeaturedProjectCard({
                       <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-accent-bg">
                         <FiCheck className="text-accent" size={12} />
                       </span>
-                      <span className="text-sm leading-snug text-muted">
-                        {h}
-                      </span>
+                      <span className="text-sm leading-snug text-muted">{h}</span>
                     </li>
                   ))}
                 </ul>
@@ -75,15 +69,13 @@ export default function FeaturedProjectCard({
             )}
           </div>
 
-          {/* Right — metrics + tech + links */}
           <div className="space-y-6 lg:col-span-2">
-            {/* Metrics */}
             {metrics && metrics.length > 0 && (
               <div className="grid grid-cols-3 gap-3">
                 {metrics.map((m) => (
                   <div
                     key={m.label}
-                    className="rounded-xl border border-card-border bg-background p-4 text-center"
+                    className="rounded-xl border border-card-border bg-background/50 p-4 text-center"
                   >
                     <p className="bg-gradient-to-r from-gradient-start to-gradient-end bg-clip-text text-2xl font-bold text-transparent">
                       {m.value}
@@ -96,7 +88,6 @@ export default function FeaturedProjectCard({
               </div>
             )}
 
-            {/* Tech stack */}
             <div>
               <h5 className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-light">
                 Tech Stack
@@ -105,7 +96,7 @@ export default function FeaturedProjectCard({
                 {tech.map((t) => (
                   <span
                     key={t}
-                    className="rounded-lg border border-card-border bg-background px-3 py-1.5 text-xs font-semibold text-foreground"
+                    className="rounded-lg border border-card-border bg-background/50 px-3 py-1.5 text-xs font-semibold text-foreground"
                   >
                     {t}
                   </span>
@@ -113,7 +104,6 @@ export default function FeaturedProjectCard({
               </div>
             </div>
 
-            {/* Trusted by */}
             {trustedBy && trustedBy.length > 0 && (
               <div>
                 <h5 className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-light">
@@ -133,15 +123,14 @@ export default function FeaturedProjectCard({
               </div>
             )}
 
-            {/* CTA */}
             {live && (
               <a
                 href={live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gradient-start to-gradient-end py-3.5 text-sm font-bold text-white shadow-lg shadow-accent/25 transition-all hover:shadow-xl hover:shadow-accent/35 hover:brightness-110"
+                className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gradient-start to-gradient-end py-3.5 text-sm font-bold text-white shadow-lg shadow-accent-dark/25 transition-all hover:shadow-xl hover:shadow-accent-dark/35"
               >
-                <FiExternalLink size={16} />
+                <FiExternalLink size={16} className="transition-transform group-hover/btn:scale-110" />
                 Visit Xpense
               </a>
             )}

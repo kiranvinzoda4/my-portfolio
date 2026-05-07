@@ -1,5 +1,7 @@
+"use client";
 import type { ExperienceItem } from "@/types/portfolio";
 import { SectionHeader, TimelineItem } from "@/components/ui";
+import { FadeIn, StaggerContainer, SlideIn } from "@/components/motion";
 
 interface ExperienceProps {
   items: ExperienceItem[];
@@ -7,14 +9,19 @@ interface ExperienceProps {
 
 export default function Experience({ items }: ExperienceProps) {
   return (
-    <section id="experience" className="bg-section-alt px-6 py-28">
-      <div className="mx-auto max-w-3xl">
-        <SectionHeader label="Experience" title="My Journey" />
-        <div className="relative border-l-2 border-accent/20 pl-8">
+    <section id="experience" className="relative px-6 py-28">
+      <div className="pointer-events-none absolute inset-0 bg-section-alt" />
+      <div className="relative mx-auto max-w-3xl">
+        <FadeIn>
+          <SectionHeader label="Experience" title="My Journey" />
+        </FadeIn>
+        <StaggerContainer stagger={0.15} className="relative border-l-2 border-accent/20 pl-8">
           {items.map((exp, i) => (
-            <TimelineItem key={i} {...exp} />
+            <SlideIn key={i}>
+              <TimelineItem {...exp} />
+            </SlideIn>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
