@@ -16,6 +16,10 @@ import {
   SiMysql,
   SiFastapi,
   SiDjango,
+  SiYii,
+  SiHtml5,
+  SiCss,
+  SiJavascript,
 } from "react-icons/si";
 import { FaAws, FaJava } from "react-icons/fa";
 import {
@@ -46,6 +50,10 @@ const icons: Record<string, IconType> = {
   mysql: SiMysql,
   fastapi: SiFastapi,
   django: SiDjango,
+  yii: SiYii,
+  html: SiHtml5,
+  css: SiCss,
+  javascript: SiJavascript,
   github: FiGithub,
   linkedin: FiLinkedin,
   twitter: FiTwitter,

@@ -8,13 +8,21 @@ interface TextRevealProps {
   as?: "h1" | "h2" | "h3" | "p" | "span";
 }
 
+const MOTION_TAGS = {
+  h1: motion.create("h1"),
+  h2: motion.create("h2"),
+  h3: motion.create("h3"),
+  p: motion.create("p"),
+  span: motion.create("span"),
+};
+
 export default function TextReveal({
   text,
   delay = 0,
   className,
-  as: Tag = "p",
+  as = "p",
 }: TextRevealProps) {
-  const MotionTag = motion.create(Tag);
+  const MotionTag = MOTION_TAGS[as];
 
   return (
     <MotionTag

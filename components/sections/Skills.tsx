@@ -18,7 +18,7 @@ export default function Skills({ categories }: SkillsProps) {
         <FadeIn>
           <SectionHeader label="Skills" title="What I Work With" />
         </FadeIn>
-        <StaggerContainer stagger={0.15} className="grid gap-8 md:grid-cols-3">
+        <StaggerContainer stagger={0.15} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((cat) => (
             <SlideIn key={cat.title}>
               <SkillGroup {...cat} />

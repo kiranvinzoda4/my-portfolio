@@ -22,7 +22,7 @@ export default function SkillGroup({ title, skills }: SkillCategory) {
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gradient-start/50 to-transparent" />
       <h4 className="mb-5 text-lg font-bold">{title}</h4>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 gap-3">
         {skills.map((skill) => (
           <SkillItem key={skill.name} {...skill} />
         ))}

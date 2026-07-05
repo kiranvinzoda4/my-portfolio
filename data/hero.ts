@@ -19,3 +19,4 @@ export const heroData: HeroData = {
     { id: "github", href: "https://github.com/kiranvinzoda4", label: "GitHub" },
   ],
 };
+

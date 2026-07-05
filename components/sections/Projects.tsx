@@ -1,7 +1,7 @@
 "use client";
 import type { Project } from "@/types/portfolio";
 import { SectionHeader, ProjectCard, FeaturedProjectCard } from "@/components/ui";
-import { FadeIn, StaggerContainer, SlideIn, ScaleIn } from "@/components/motion";
+import { FadeIn, StaggerContainer, SlideIn } from "@/components/motion";
 
 interface ProjectsProps {
   items: Project[];
