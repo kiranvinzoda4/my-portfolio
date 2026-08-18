@@ -56,6 +56,14 @@ export const projects: Project[] = [
     category: "company",
   },
   {
+    title: "Unnati Enterprise",
+    description:
+      "Business website for a rooftop solar and RO water purifier company serving Bhuj & Kutch since 2015. Showcases services (RO plants, rooftop solar, solar water heaters, water softeners, RO repair), the team, and client testimonials.",
+    tech: ["Python", "FastAPI", "MySQL"],
+    live: "https://unnatienterprise.com/",
+    category: "company",
+  },
+  {
     title: "DocIQ \u2013 AI File Analysis",
     description:
       "Upload PDFs and images, chat with them using AI. Built with vector search, OCR text extraction, document embeddings, and local LLM integration via Ollama.",
