@@ -182,37 +182,44 @@
   .earlier .what b { color: var(--ink); font-weight: 600; }
   .earlier .when { color: var(--muted); font-size: 10px; font-weight: 600; text-align: right; }
 
-  /* project cards */
-  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .card {
+  /* projects: featured blocks */
+  .proj {
+    margin-bottom: 14px;
+    padding: 12px 14px 11px 14px;
     border: 1px solid var(--rule);
-    border-radius: 8px;
     border-left: 3px solid var(--accent);
-    padding: 13px 14px 12px;
+    border-radius: 8px;
     page-break-inside: avoid;
   }
-  .card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-  .card-title { font-size: 12px; font-weight: 700; color: var(--ink); }
-  .badge { font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); }
-  .badge.work { color: #2f7d5b; }
-  .card-desc { margin: 5px 0 7px; font-size: 10.3px; line-height: 1.5; color: var(--text); }
-  .card-tech { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
-  .card-tech .chip { font-size: 9px; padding: 2px 7px; }
-  .card-link { font-size: 9.5px; color: var(--accent); text-decoration: none; }
+  .proj-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .proj-title { font-size: 13px; font-weight: 800; color: var(--ink); }
+  .proj-badge {
+    margin-left: 8px;
+    font-size: 8.5px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase;
+    padding: 2px 7px; border-radius: 999px; vertical-align: 2px;
+    background: #e9f6ef; color: #2f7d5b;
+  }
+  .proj-badge.personal { background: #f1f2f6; color: var(--muted); }
+  .proj-link { font-size: 9.8px; font-weight: 600; color: var(--accent); text-decoration: none; white-space: nowrap; }
+  .proj-tagline { margin: 3px 0 6px; font-size: 10.6px; font-style: italic; color: var(--muted); }
+  .proj .bullets { margin-bottom: 7px; }
+  .proj .bullets b { color: var(--ink); font-weight: 600; }
+  .proj-tech { display: flex; flex-wrap: wrap; gap: 4px; }
+  .proj-tech .chip { font-size: 9px; padding: 2px 8px; }
 
-  .trio { display: grid; grid-template-columns: 1.4fr 1fr 0.8fr; gap: 16px; }
+  .proj { margin-bottom: 10px; padding-top: 10px; padding-bottom: 9px; }
+  .other-heading { margin: 4px 0 7px; font-size: 11px; }
+  .mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .mini-proj { border: 1px solid var(--rule); border-radius: 8px; padding: 8px 11px; page-break-inside: avoid; }
+  .mini-title { font-size: 11.3px; font-weight: 700; color: var(--ink); }
+  .mini-proj .proj-badge { font-size: 7.5px; padding: 1px 6px; margin-left: 6px; }
+  .mini-proj .proj-link { font-size: 9px; }
+  .mini-desc { margin: 3px 0 5px; font-size: 9.9px; line-height: 1.45; color: var(--text); }
+  .mini-proj .chip { font-size: 8.5px; padding: 1px 7px; }
+
+  .trio { display: grid; grid-template-columns: 1.4fr 1fr 0.8fr; gap: 16px; margin-top: 6px; }
   .fact-title { font-size: 11.3px; font-weight: 700; color: var(--ink); }
   .fact-sub { font-size: 10.3px; color: var(--muted); margin-top: 2px; line-height: 1.5; }
-
-  /* project list (single column, ATS-friendly) */
-  .proj { margin-bottom: 11px; page-break-inside: avoid; }
-  .proj-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-  .proj-title { font-size: 12px; font-weight: 700; color: var(--ink); }
-  .proj-title span { font-weight: 500; color: var(--accent); }
-  .proj-meta { font-size: 9.8px; color: var(--muted); margin: 2px 0 3px; }
-  .proj-meta a { color: var(--accent); text-decoration: none; }
-  .more { margin: 0; padding-left: 14px; font-size: 10.5px; line-height: 1.6; color: var(--text); }
-  .more b { color: var(--ink); font-weight: 600; }
 
   /* ---------- print ---------- */
   @media print {
@@ -338,45 +345,93 @@
 
     <div class="body">
       <section class="section">
-        <h2 class="section-heading">Python Projects</h2>
+        <h2 class="section-heading">Key Projects</h2>
         <div class="proj">
-          <div class="proj-head"><div class="proj-title">DocIQ — Document Intelligence <span>· Personal</span></div></div>
-          <div class="proj-meta">FastAPI · ChromaDB · Ollama · OCR · Next.js · <a href="https://github.com/kiranvinzoda4/ai_tasks">github.com/kiranvinzoda4/ai_tasks</a></div>
+          <div class="proj-head">
+            <div class="proj-title">DocIQ — Document Intelligence<span class="proj-badge personal">Personal</span></div>
+            <a class="proj-link" href="https://github.com/kiranvinzoda4/ai_tasks">GitHub ↗</a>
+          </div>
+          <p class="proj-tagline">Chat with your own PDFs and images using retrieval-augmented generation.</p>
           <ul class="bullets">
-            <li>RAG application: upload PDFs and images, extract text with OCR, store embeddings in ChromaDB and answer questions with a local LLM through Ollama.</li>
-            <li>JWT authentication with email OTP verification, chat history and drag-and-drop uploads.</li>
+            <li><b>Ingestion:</b> PDF and image upload, OCR text extraction and embeddings stored in ChromaDB.</li>
+            <li><b>Chat:</b> answers grounded in the uploaded documents from a local LLM through Ollama, with chat history.</li>
+            <li><b>App:</b> JWT authentication with email OTP verification and a Next.js frontend with drag-and-drop uploads.</li>
           </ul>
+          <div class="proj-tech"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">RAG</span><span class="chip">ChromaDB</span><span class="chip">Ollama</span><span class="chip">OCR</span><span class="chip">Next.js</span></div>
         </div>
         <div class="proj">
-          <div class="proj-head"><div class="proj-title">SmartAttend — Computer Vision <span>· Personal</span></div></div>
-          <div class="proj-meta">FastAPI · InsightFace · FAISS · <a href="https://github.com/kiranvinzoda4/SmartAttend">github.com/kiranvinzoda4/SmartAttend</a></div>
+          <div class="proj-head">
+            <div class="proj-title">SmartAttend — Face Recognition Attendance<span class="proj-badge personal">Personal</span></div>
+            <a class="proj-link" href="https://github.com/kiranvinzoda4/SmartAttend">GitHub ↗</a>
+          </div>
+          <p class="proj-tagline">Contactless HR attendance using computer vision.</p>
           <ul class="bullets">
-            <li>Contactless attendance by webcam face recognition, using InsightFace embeddings and FAISS similarity search, with department management and attendance analytics.</li>
+            <li><b>Recognition:</b> face enrolment and webcam check-in using InsightFace embeddings and FAISS similarity search.</li>
+            <li><b>HR tools:</b> department management, employee records and attendance analytics.</li>
           </ul>
+          <div class="proj-tech"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">InsightFace</span><span class="chip">FAISS</span><span class="chip">Computer Vision</span></div>
         </div>
         <div class="proj">
-          <div class="proj-head"><div class="proj-title">Unnati Enterprise — ServiceFlow <span>· Freelance</span></div></div>
-          <div class="proj-meta">FastAPI · SQLAlchemy · Alembic · MySQL · Firebase · S3 · Pytest · <a href="https://unnatienterprise.com/">unnatienterprise.com</a></div>
+          <div class="proj-head">
+            <div class="proj-title">Unnati Enterprise — ServiceFlow<span class="proj-badge">Freelance</span></div>
+            <a class="proj-link" href="https://unnatienterprise.com/">unnatienterprise.com ↗</a>
+          </div>
+          <p class="proj-tagline">Service-management platform for a solar and RO water company, live and in active development.</p>
           <ul class="bullets">
-            <li>Service-management platform for a solar and RO water company: sales and installation scheduling, service requests with technician assignment, and activity and spare-part logs.</li>
-            <li>Role-based admin permissions, WhatsApp OTP login, Firebase push notifications, PDF and Excel exports, rate limiting and Pytest tests.</li>
+            <li><b>Operations:</b> customers, products, sales, and installation scheduling with rescheduling.</li>
+            <li><b>Service desk:</b> service requests with technician assignment, activity logs, spare-part tracking and duplicate-request detection.</li>
+            <li><b>Platform:</b> role-based admin permissions, WhatsApp OTP login with rate limiting, Firebase push notifications, PDF and Excel exports, S3 storage and Pytest tests.</li>
           </ul>
+          <div class="proj-tech"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLAlchemy</span><span class="chip">Alembic</span><span class="chip">MySQL</span><span class="chip">Firebase</span><span class="chip">AWS S3</span><span class="chip">Pytest</span></div>
         </div>
         <div class="proj">
-          <div class="proj-head"><div class="proj-title">Ziba Comfort <span>· Freelance</span></div></div>
-          <div class="proj-meta">FastAPI · SQLAlchemy · MySQL · S3 · <a href="https://www.zibacomfort.com/">zibacomfort.com</a></div>
+          <div class="proj-head">
+            <div class="proj-title">Ziba Comfort<span class="proj-badge">Freelance</span></div>
+            <a class="proj-link" href="https://www.zibacomfort.com/">zibacomfort.com ↗</a>
+          </div>
+          <p class="proj-tagline">E-commerce backend for a premium furniture and interior design company.</p>
           <ul class="bullets">
-            <li>Furniture e-commerce backend: configurable products (fabric, size, colour, warranty), orders with custom measurements, wishlist and reviews.</li>
-            <li>Multi-level referral program, offers and coupons, and callback-request handling.</li>
+            <li><b>Catalogue:</b> products with fabric, size, colour and warranty options and multiple images.</li>
+            <li><b>Orders:</b> custom measurements, wishlist, and customer reviews with photos.</li>
+            <li><b>Growth:</b> multi-level referral program with partners, offers and coupon tracking, ads and callback requests.</li>
           </ul>
+          <div class="proj-tech"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLAlchemy</span><span class="chip">MySQL</span><span class="chip">AWS S3</span></div>
         </div>
-        <div class="area-title" style="margin-top:4px">More projects</div>
-        <ul class="more">
-          <li><b>MailTone AI</b> — detects email tone with DistilBERT and rewrites it in 16 tones with Phi-3.</li>
-          <li><b>SmartGallery</b> — photo gallery that groups photos by person using InsightFace and FAISS.</li>
-          <li><b>SignX</b> (AeonX) — Python/FastAPI backend for enterprise digital signing: bulk signing, approval workflows and API access.</li>
-          <li><b>DailyVeg</b> (Freelance, live on Google Play) — FastAPI backend for vegetable delivery: ordering, scheduling, delivery assignment and tracking.</li>
-        </ul>
+        <div class="area-title other-heading">Other Projects</div>
+        <div class="mini-grid">
+          <div class="mini-proj">
+            <div class="proj-head">
+              <div class="mini-title">MailTone AI<span class="proj-badge personal">Personal</span></div>
+              <a class="proj-link" href="https://github.com/kiranvinzoda4/MailTone_AI">GitHub ↗</a>
+            </div>
+            <p class="mini-desc">Detects the emotion in an email with DistilBERT and rewrites it in any of 16 tones with Phi-3 Mini.</p>
+            <div class="proj-tech"><span class="chip">FastAPI</span><span class="chip">DistilBERT</span><span class="chip">Phi-3</span><span class="chip">Ollama</span></div>
+          </div>
+          <div class="mini-proj">
+            <div class="proj-head">
+              <div class="mini-title">SmartGallery<span class="proj-badge personal">Personal</span></div>
+              <a class="proj-link" href="https://github.com/kiranvinzoda4/SmartGalleryWithAi">GitHub ↗</a>
+            </div>
+            <p class="mini-desc">AI photo gallery that recognises faces and groups photos by person, improving as users label people.</p>
+            <div class="proj-tech"><span class="chip">FastAPI</span><span class="chip">InsightFace</span><span class="chip">FAISS</span></div>
+          </div>
+          <div class="mini-proj">
+            <div class="proj-head">
+              <div class="mini-title">SignX<span class="proj-badge">AeonX</span></div>
+              <a class="proj-link" href="https://www.aeonx.digital/signx-buy-now/">aeonx.digital ↗</a>
+            </div>
+            <p class="mini-desc">Enterprise digital signature platform: bulk signing, configurable approval workflows and secure API access.</p>
+            <div class="proj-tech"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">MySQL</span></div>
+          </div>
+          <div class="mini-proj">
+            <div class="proj-head">
+              <div class="mini-title">DailyVeg<span class="proj-badge">Freelance</span></div>
+              <a class="proj-link" href="https://play.google.com/store/apps/details?id=com.dailyveg.customer">Google Play ↗</a>
+            </div>
+            <p class="mini-desc">Vegetable delivery backend: ordering, future-dated scheduling, delivery assignment and live order tracking.</p>
+            <div class="proj-tech"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">MySQL</span></div>
+          </div>
+        </div>
       </section>
 
       <section class="section">
