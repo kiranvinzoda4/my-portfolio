@@ -2,7 +2,7 @@ import type { AwardData } from "@/types/portfolio";
 
 export const awardData: AwardData = {
   title: "Ashapura Conquer Superstar Award",
-  organization: "Ashapura Group of Industry",
+  organization: "Ashapura Group of Industries",
   year: "2024",
   image: "/award.jpg",
   description:

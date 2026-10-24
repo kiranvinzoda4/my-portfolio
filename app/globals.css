@@ -139,7 +139,7 @@ body::before {
   inset: 0;
   background: radial-gradient(
     500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(99, 102, 241, 0.06),
+    rgba(129, 140, 248, 0.12),
     transparent 40%
   );
   pointer-events: none;
@@ -196,4 +196,52 @@ body::before {
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradient-shift 4s ease infinite;
+}
+
+/* Crisp conic ring that slowly spins around the profile photo */
+.spin-ring {
+  background: conic-gradient(
+    from 0deg,
+    var(--gradient-start),
+    var(--gradient-end),
+    transparent 40%,
+    var(--gradient-mid),
+    var(--gradient-start)
+  );
+  animation: spin-ring 8s linear infinite;
+}
+@keyframes spin-ring {
+  to { transform: rotate(360deg); }
+}
+
+/* Page-wide glow that follows the cursor (positioned by CursorGlow) */
+.cursor-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--cx, -1000px) var(--cy, -1000px),
+    rgba(99, 102, 241, 0.07),
+    transparent 45%
+  );
+}
+
+/* Cards that tilt slightly towards the cursor (angles set by useTilt) */
+.tilt-card {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.25s ease-out, box-shadow 0.4s ease, border-color 0.4s ease;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spin-ring,
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-gradient {
+    animation: none;
+  }
+  .tilt-card {
+    transform: none;
+  }
 }

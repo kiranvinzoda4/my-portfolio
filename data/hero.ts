@@ -4,7 +4,7 @@ export const heroData: HeroData = {
   greeting: "Hello, I'm",
   name: "Kiran Vinzoda",
   highlight: "Senior Backend Developer",
-  tagline: "FastAPI · AI-Driven Systems · SaaS Architecture",
+  tagline: "FastAPI · Agentic AI · AWS · SaaS Architecture",
   profileImage: "/pic.jpg",
   description:
     "I design and build high-performance backend systems using Python, FastAPI, and AWS. Specialized in SaaS platforms, AI integrations, and scalable API architectures.",
@@ -17,6 +17,8 @@ export const heroData: HeroData = {
   secondaryCta: { label: "View Work", href: "#projects" },
   socials: [
     { id: "github", href: "https://github.com/kiranvinzoda4", label: "GitHub" },
+    { id: "linkedin", href: "https://www.linkedin.com/in/kiran-vinzoda-75773252/", label: "LinkedIn" },
+    { id: "email", href: "mailto:vinzodakiran4@gmail.com", label: "Email" },
   ],
 };
 

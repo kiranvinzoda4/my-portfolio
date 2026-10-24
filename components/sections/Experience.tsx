@@ -11,7 +11,7 @@ export default function Experience({ items }: ExperienceProps) {
   return (
     <section id="experience" className="relative px-6 py-28">
       <div className="pointer-events-none absolute inset-0 bg-section-alt" />
-      <div className="relative mx-auto max-w-3xl">
+      <div className="relative mx-auto max-w-4xl">
         <FadeIn>
           <SectionHeader label="Experience" title="My Journey" />
         </FadeIn>

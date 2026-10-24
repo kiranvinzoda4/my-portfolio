@@ -5,3 +5,5 @@ export { default as ScaleIn } from "./ScaleIn";
 export { default as TextReveal } from "./TextReveal";
 export { default as MagneticHover } from "./MagneticHover";
 export { default as ScrollProgress } from "./ScrollProgress";
+export { default as CursorGlow } from "./CursorGlow";
+export { default as useSpotlight } from "./useSpotlight";

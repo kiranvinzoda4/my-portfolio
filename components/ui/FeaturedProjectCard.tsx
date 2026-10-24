@@ -1,5 +1,7 @@
+"use client";
 import { FiExternalLink, FiCheck, FiShield } from "react-icons/fi";
 import type { Project } from "@/types/portfolio";
+import { useSpotlight } from "@/components/motion";
 
 export default function FeaturedProjectCard({
   title,
@@ -11,8 +13,10 @@ export default function FeaturedProjectCard({
   metrics,
   trustedBy,
 }: Project) {
+  const spotlight = useSpotlight<HTMLDivElement>();
+
   return (
-    <div className="group relative overflow-hidden rounded-3xl border border-accent/15 bg-card-solid shadow-2xl shadow-accent-glow/50">
+    <div {...spotlight} className="spotlight-card group relative overflow-hidden rounded-3xl border border-accent/15 bg-card-solid shadow-2xl shadow-accent-glow/50">
       {/* Gradient top bar */}
       <div className="h-1 bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end" />
 

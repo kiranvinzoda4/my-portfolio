@@ -20,6 +20,10 @@ import {
   SiHtml5,
   SiCss,
   SiJavascript,
+  SiSqlalchemy,
+  SiFirebase,
+  SiLangchain,
+  SiOllama,
 } from "react-icons/si";
 import { FaAws, FaJava } from "react-icons/fa";
 import {
@@ -29,6 +33,7 @@ import {
   FiMail,
   FiMapPin,
   FiPhone,
+  FiCpu,
 } from "react-icons/fi";
 
 const icons: Record<string, IconType> = {
@@ -54,6 +59,11 @@ const icons: Record<string, IconType> = {
   html: SiHtml5,
   css: SiCss,
   javascript: SiJavascript,
+  sqlalchemy: SiSqlalchemy,
+  firebase: SiFirebase,
+  langchain: SiLangchain,
+  ollama: SiOllama,
+  ai: FiCpu,
   github: FiGithub,
   linkedin: FiLinkedin,
   twitter: FiTwitter,

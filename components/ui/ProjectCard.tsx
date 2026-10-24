@@ -1,7 +1,7 @@
 "use client";
-import { useRef, type MouseEvent } from "react";
-import { FiExternalLink, FiGithub, FiFolder } from "react-icons/fi";
+import { FiArrowUpRight, FiBriefcase, FiCpu, FiGithub } from "react-icons/fi";
 import type { Project } from "@/types/portfolio";
+import { useSpotlight } from "@/components/motion";
 
 export default function ProjectCard({
   title,
@@ -11,21 +11,13 @@ export default function ProjectCard({
   live,
   category,
 }: Project) {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const handleMouse = (e: MouseEvent) => {
-    const el = cardRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    el.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
-    el.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
-  };
+  const spotlight = useSpotlight<HTMLDivElement>(4);
+  const Icon = category === "personal" ? FiCpu : FiBriefcase;
 
   return (
     <div
-      ref={cardRef}
-      onMouseMove={handleMouse}
-      className="spotlight-card gradient-border group relative flex flex-col overflow-hidden border border-card-border transition-all duration-400 hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/5"
+      {...spotlight}
+      className="spotlight-card gradient-border tilt-card group relative flex h-full flex-col overflow-hidden border border-card-border hover:shadow-2xl hover:shadow-accent-dark/15"
     >
       {/* Gradient top bar */}
       <div className="h-px bg-gradient-to-r from-transparent via-gradient-start/50 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
@@ -33,7 +25,7 @@ export default function ProjectCard({
       <div className="flex flex-1 flex-col p-6">
         <div className="mb-4 flex items-start justify-between">
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-bg transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-gradient-start group-hover:to-gradient-end group-hover:shadow-lg group-hover:shadow-accent/20">
-            <FiFolder
+            <Icon
               className="text-accent transition-colors group-hover:text-white"
               size={20}
             />
@@ -71,17 +63,17 @@ export default function ProjectCard({
           ))}
         </div>
 
-        <div className="flex gap-3">
+        <div className="relative z-10 flex gap-2">
           {github && (
             <a
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-card-border py-2.5 text-xs font-semibold text-muted transition-all duration-300 hover:border-accent/40 hover:bg-accent-bg hover:text-accent"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-card-border px-3 py-1.5 text-xs font-semibold text-muted transition-all duration-300 hover:border-accent/40 hover:bg-accent-bg hover:text-accent"
               aria-label={`${title} GitHub`}
             >
-              <FiGithub size={14} />
-              View Code
+              <FiGithub size={13} />
+              Code
             </a>
           )}
           {live && (
@@ -89,11 +81,11 @@ export default function ProjectCard({
               href={live}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gradient-start to-gradient-end py-2.5 text-xs font-semibold text-white shadow-md shadow-accent-dark/20 transition-all duration-300 hover:shadow-lg hover:shadow-accent-dark/30"
-              aria-label={`${title} live demo`}
+              className="group/live inline-flex items-center gap-1.5 rounded-lg border border-accent/30 bg-accent-bg px-3 py-1.5 text-xs font-semibold text-accent-light transition-all duration-300 hover:border-accent/60 hover:bg-gradient-to-r hover:from-gradient-start hover:to-gradient-end hover:text-white hover:shadow-md hover:shadow-accent-dark/30"
+              aria-label={`${title} live site`}
             >
-              <FiExternalLink size={14} />
-              Live Demo
+              Visit live
+              <FiArrowUpRight size={13} className="transition-transform group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5" />
             </a>
           )}
         </div>

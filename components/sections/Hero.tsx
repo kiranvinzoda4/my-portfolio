@@ -205,8 +205,12 @@ export default function Hero(props: HeroData) {
               {/* Outer pulsing glow ring */}
               <div className="absolute -inset-8 animate-pulse-glow rounded-full bg-gradient-to-r from-gradient-start to-gradient-end opacity-20 blur-3xl" />
 
-              {/* Rotating gradient ring */}
-              <div className="animate-gradient absolute -inset-4 rounded-full bg-gradient-to-r from-gradient-start via-gradient-end to-gradient-start opacity-40 blur-2xl" />
+              {/* Soft colour wash behind the photo */}
+              <div className="animate-gradient absolute -inset-4 rounded-full bg-gradient-to-r from-gradient-start via-gradient-end to-gradient-start opacity-30 blur-2xl" />
+
+              {/* Spinning gradient ring: a sharp edge plus a blurred copy for the glow */}
+              <div className="spin-ring absolute -inset-[5px] rounded-full opacity-70 blur-md" />
+              <div className="spin-ring absolute -inset-[3px] rounded-full" />
 
               {/* Inner glow */}
               <div className="absolute -inset-2 rounded-full bg-accent/20 blur-xl" />
@@ -217,7 +221,7 @@ export default function Hero(props: HeroData) {
                 alt={props.name}
                 width={320}
                 height={320}
-                className="relative h-56 w-56 rounded-full border-2 border-accent/30 object-cover shadow-[0_0_80px_rgba(99,102,241,0.25)] sm:h-72 sm:w-72 lg:h-80 lg:w-80"
+                className="relative h-56 w-56 rounded-full border-4 border-background object-cover shadow-[0_0_80px_rgba(99,102,241,0.25)] sm:h-72 sm:w-72 lg:h-80 lg:w-80"
                 priority
               />
             </div>

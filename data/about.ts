@@ -6,6 +6,7 @@ export const aboutData: AboutData = {
   focusAreas: [
     "API design & performance optimization",
     "Database architecture — MySQL, PostgreSQL",
+    "Agentic AI — LangGraph, MCP, AWS Bedrock",
     "AI/ML integrations — OCR, embeddings, LLMs",
     "SaaS platform development & cloud deployment",
     "System design for high-traffic applications",

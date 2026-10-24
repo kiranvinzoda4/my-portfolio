@@ -6,9 +6,9 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Python", iconId: "python" },
       { name: "PHP", iconId: "php" },
-      { name: "Java", iconId: "java" },
       { name: "JavaScript", iconId: "javascript" },
       { name: "TypeScript", iconId: "typescript" },
+      { name: "Java", iconId: "java" },
     ],
   },
   {
@@ -16,9 +16,44 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "FastAPI", iconId: "fastapi" },
       { name: "Django", iconId: "django" },
+      { name: "SQLAlchemy", iconId: "sqlalchemy" },
       { name: "Laravel", iconId: "laravel" },
       { name: "Yii", iconId: "yii" },
       { name: "Node.js", iconId: "nodejs" },
+    ],
+  },
+  {
+    title: "AI & LLM",
+    skills: [
+      { name: "LangGraph", iconId: "langchain" },
+      { name: "MCP servers", iconId: "ai" },
+      { name: "AWS Bedrock", iconId: "aws" },
+      { name: "Ollama", iconId: "ollama" },
+      { name: "ChromaDB", iconId: "ai" },
+      { name: "FAISS", iconId: "ai" },
+      { name: "InsightFace", iconId: "ai" },
+      { name: "OCR & embeddings", iconId: "ai" },
+    ],
+  },
+  {
+    title: "AWS Cloud",
+    skills: [
+      { name: "ECS", iconId: "aws" },
+      { name: "EC2", iconId: "aws" },
+      { name: "Lambda", iconId: "aws" },
+      { name: "S3", iconId: "aws" },
+      { name: "SES", iconId: "aws" },
+      { name: "DynamoDB", iconId: "aws" },
+    ],
+  },
+  {
+    title: "Databases & DevOps",
+    skills: [
+      { name: "MySQL", iconId: "mysql" },
+      { name: "PostgreSQL", iconId: "postgresql" },
+      { name: "Docker", iconId: "docker" },
+      { name: "Git", iconId: "git" },
+      { name: "Firebase", iconId: "firebase" },
     ],
   },
   {
@@ -29,26 +64,6 @@ export const skillCategories: SkillCategory[] = [
       { name: "Tailwind CSS", iconId: "tailwind" },
       { name: "HTML", iconId: "html" },
       { name: "CSS", iconId: "css" },
-    ],
-  },
-  {
-    title: "AWS Cloud",
-    skills: [
-      { name: "EC2", iconId: "aws" },
-      { name: "Lambda", iconId: "aws" },
-      { name: "S3", iconId: "aws" },
-      { name: "SES", iconId: "aws" },
-      { name: "ECS", iconId: "aws" },
-    ],
-  },
-  {
-    title: "Databases & Tools",
-    skills: [
-      { name: "MySQL", iconId: "mysql" },
-      { name: "PostgreSQL", iconId: "postgresql" },
-      { name: "DynamoDB", iconId: "aws" },
-      { name: "Docker", iconId: "docker" },
-      { name: "Git", iconId: "git" },
     ],
   },
 ];

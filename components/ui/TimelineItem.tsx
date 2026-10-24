@@ -13,15 +13,17 @@ export default function TimelineItem({
         <div className="h-2 w-2 rounded-full bg-background" />
       </div>
       {/* Card */}
-      <div className="rounded-xl border border-card-border bg-card-solid/80 p-5 backdrop-blur-sm transition-all duration-300 hover:border-accent/20 hover:shadow-lg hover:shadow-accent-glow">
-        <div className="mb-3 flex flex-wrap items-center gap-3">
-          <span className="rounded-lg bg-accent-bg px-3 py-1 text-xs font-semibold text-accent">
+      <div className="rounded-xl border border-card-border bg-card-solid/80 p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-lg hover:shadow-accent-glow sm:p-6">
+        <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <h4 className="text-lg font-bold">{role}</h4>
+            <p className="text-sm font-medium text-accent">{company}</p>
+          </div>
+          <span className="w-fit shrink-0 rounded-lg bg-accent-bg px-3 py-1 text-xs font-semibold whitespace-nowrap text-accent">
             {period}
           </span>
         </div>
-        <h4 className="text-base font-bold">{role}</h4>
-        <p className="mb-3 text-sm font-medium text-accent">{company}</p>
-        <ul className="space-y-1.5">
+        <ul className="space-y-2">
           {bullets.map((b) => (
             <li key={b} className="flex items-start gap-2 text-sm text-muted">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent/50" />

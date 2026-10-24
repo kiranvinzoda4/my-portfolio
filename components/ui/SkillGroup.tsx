@@ -1,28 +1,22 @@
 "use client";
-import { useRef, type MouseEvent } from "react";
 import type { SkillCategory } from "@/types/portfolio";
+import { useSpotlight } from "@/components/motion";
 import SkillItem from "./SkillItem";
 
 export default function SkillGroup({ title, skills }: SkillCategory) {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const handleMouse = (e: MouseEvent) => {
-    const el = cardRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    el.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
-    el.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
-  };
+  const spotlight = useSpotlight<HTMLDivElement>();
 
   return (
     <div
-      ref={cardRef}
-      onMouseMove={handleMouse}
-      className="spotlight-card gradient-border glow-hover relative overflow-hidden border border-card-border p-6 transition-all duration-400"
+      {...spotlight}
+      className="spotlight-card gradient-border glow-hover relative h-full overflow-hidden border border-card-border p-6 transition-all duration-400"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gradient-start/50 to-transparent" />
-      <h4 className="mb-5 text-lg font-bold">{title}</h4>
-      <div className="grid grid-cols-1 gap-3">
+      <div className="mb-4 flex items-center justify-between">
+        <h4 className="text-lg font-bold">{title}</h4>
+        <span className="rounded-md bg-accent-bg px-2 py-0.5 font-mono text-xs text-accent">{skills.length}</span>
+      </div>
+      <div className="relative z-10 flex flex-wrap gap-2">
         {skills.map((skill) => (
           <SkillItem key={skill.name} {...skill} />
         ))}

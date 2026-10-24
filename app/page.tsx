@@ -10,6 +10,7 @@ import {
   Footer,
 } from "@/components/sections";
 import ScrollProgress from "@/components/motion/ScrollProgress";
+import CursorGlow from "@/components/motion/CursorGlow";
 import { navLinks } from "@/data/nav";
 import { heroData } from "@/data/hero";
 import { aboutData } from "@/data/about";
@@ -27,6 +28,7 @@ export default function Home() {
   return (
     <>
       <ScrollProgress />
+      <CursorGlow />
       <Navbar brand="KV" links={navLinks} />
       <Hero {...heroData} />
       <Divider />

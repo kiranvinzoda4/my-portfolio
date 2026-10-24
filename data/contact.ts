@@ -6,6 +6,7 @@ export const contactData: ContactData = {
   info: [
     { id: "email", text: "vinzodakiran4@gmail.com" },
     { id: "phone", text: "+91 9879946630" },
+    { id: "linkedin", text: "linkedin.com/in/kiran-vinzoda" },
     { id: "location", text: "Bhuj, Gujarat, India · Open to remote & relocation" },
   ],
 };
