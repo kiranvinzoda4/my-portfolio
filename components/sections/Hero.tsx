@@ -7,7 +7,7 @@ import type { HeroData } from "@/types/portfolio";
 import { SocialIcon } from "@/components/ui";
 import { MagneticHover } from "@/components/motion";
 
-const roles = ["Python Developer", "Backend Engineer", "Cloud & DevOps Engineer"];
+const roles = ["Python Developer", "Senior Backend Engineer", "Cloud & DevOps Engineer"];
 
 export default function Hero(props: HeroData) {
   const [roleIndex, setRoleIndex] = useState(0);

@@ -4,19 +4,21 @@ export const projects: Project[] = [
   {
     title: "Xpense",
     description:
-      "Enterprise expense management SaaS used by Raymond, Ashapura Group, and other large organizations. I built the core backend — approval engine, policy enforcement, real-time dashboards, and WhatsApp-based approval flows.",
+      "Multi-tenant travel & expense SaaS used by Raymond, Ashapura Group, and other enterprises. As lead backend contributor I built a Python agentic AI assistant that creates, submits and approves trips and expenses by chat, plus corporate flight and hotel booking, prepaid card payments and SAP finance posting.",
     tagline: "AI-powered governance for travel, spend & reimbursements.",
-    tech: ["Python", "FastAPI", "MySQL", "AWS", "WhatsApp API"],
+    tech: ["Python", "FastAPI", "LangGraph", "MCP", "AWS Bedrock", "MySQL", "AWS ECS", "Razorpay", "SAP", "TBO & TripJack APIs"],
     live: "https://x-pense.cloud/",
     category: "company",
     featured: true,
     highlights: [
-      "Multi-level approval workflows with AI policy enforcement",
-      "Real-time spend dashboards across departments & cost centers",
-      "WhatsApp integration — approve expenses with a single tap",
-      "Complete audit trail with GST compliance",
-      "ERP, accounting & payroll system integrations",
-      "Role-based access for finance leaders, managers & employees",
+      "End-to-end flight booking — search, fare rules, seat & meal selection, ticketing, cancellations",
+      "Auto-booking of flights once a trip request is approved",
+      "Provider-adapter layer running TBO and TripJack travel APIs behind one interface",
+      "Hotel booking — search, pre-book, hold & confirm, vouchers, cancellations",
+      "Razorpay payments for personal flight & hotel bookings, with webhooks & verification",
+      "OmniCard prepaid cards — top-ups auto-create advances posted to SAP",
+      "Agentic AI assistant in Python (LangGraph) — create, submit & approve trips and expenses by chat",
+      "MCP server with 50+ tools that the AI agent uses to act on Xpense",
     ],
     metrics: [
       { value: "3X", label: "Faster approvals" },
@@ -50,16 +52,16 @@ export const projects: Project[] = [
   {
     title: "Ziba Comfort",
     description:
-      "Full website for a premium furniture and interior design company established in 2015. Features service showcases for custom furniture, interior consultation, space planning, and delivery services.",
-    tech: ["Python", "FastAPI", "MySQL"],
+      "Furniture e-commerce backend — products with fabric, size, colour and warranty options, orders with custom measurements, wishlist and reviews, a multi-level referral program, offers and coupons, and callback requests.",
+    tech: ["Python", "FastAPI", "SQLAlchemy", "MySQL", "S3"],
     live: "https://www.zibacomfort.com/",
     category: "company",
   },
   {
-    title: "Unnati Enterprise",
+    title: "Unnati Enterprise — ServiceFlow",
     description:
-      "Business website for a rooftop solar and RO water purifier company serving Bhuj & Kutch since 2015. Showcases services (RO plants, rooftop solar, solar water heaters, water softeners, RO repair), the team, and client testimonials.",
-    tech: ["Python", "FastAPI", "MySQL"],
+      "Service-management platform for a solar and RO water company — sales and installation scheduling, service requests with technician assignment, activity and spare-part logs, role-based admin access, WhatsApp OTP login, Firebase push notifications, and PDF/Excel exports.",
+    tech: ["Python", "FastAPI", "SQLAlchemy", "MySQL", "Firebase"],
     live: "https://unnatienterprise.com/",
     category: "company",
   },

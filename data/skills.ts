@@ -32,12 +32,22 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Cloud, DB & Tools",
+    title: "AWS Cloud",
     skills: [
-      { name: "AWS", iconId: "aws" },
-      { name: "Docker", iconId: "docker" },
+      { name: "EC2", iconId: "aws" },
+      { name: "Lambda", iconId: "aws" },
+      { name: "S3", iconId: "aws" },
+      { name: "SES", iconId: "aws" },
+      { name: "ECS", iconId: "aws" },
+    ],
+  },
+  {
+    title: "Databases & Tools",
+    skills: [
       { name: "MySQL", iconId: "mysql" },
       { name: "PostgreSQL", iconId: "postgresql" },
+      { name: "DynamoDB", iconId: "aws" },
+      { name: "Docker", iconId: "docker" },
       { name: "Git", iconId: "git" },
     ],
   },

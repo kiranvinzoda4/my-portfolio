@@ -3,24 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>[Your Name] — Resume</title>
+<title>Kiran Vinzoda — Resume</title>
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
   :root {
-    --accent: #2a3a5c;
-    --accent-light: #3d5586;
-    --text: #1f2430;
-    --muted: #5b6472;
-    --sidebar-bg: #1c2438;
-    --sidebar-text: #e7ebf3;
-    --sidebar-muted: #9aa6bf;
-    --rule: #d9dee7;
-    --gradient-start: #4a63a8;
-    --gradient-end: #8aa6e8;
-    --page-w: 8.5in;
-    --page-h: 11in;
-    --sidebar-w: 2.55in;
+    --ink: #1b2233;
+    --text: #2b3240;
+    --muted: #667085;
+    --rule: #e4e7ee;
+    --navy: #17203a;
+    --accent: #4f5bd5;
+    --accent-2: #8b5cf6;
+    --accent-soft: #eef0fd;
+    --page-w: 210mm;
+    --page-h: 297mm;
   }
 
   * { box-sizing: border-box; }
@@ -28,7 +25,7 @@
   html, body {
     margin: 0;
     padding: 0;
-    background: #ecedf1;
+    background: #e9eaf0;
     font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
     color: var(--text);
     -webkit-font-smoothing: antialiased;
@@ -52,506 +49,365 @@
     font-size: 13px;
     padding: 9px 18px;
     border-radius: 6px;
-    border: 1px solid var(--accent);
+    border: 0;
     background: var(--accent);
     color: #fff;
     cursor: pointer;
   }
-  .toolbar span {
-    font-size: 12px;
-    color: var(--muted);
-    align-self: center;
-  }
+  .toolbar span { font-size: 12px; color: var(--muted); align-self: center; }
 
-  /* ---------- page ---------- */
+  /* ---------- pages ---------- */
   .page {
-    position: relative;
     width: var(--page-w);
-    min-height: var(--page-h);
+    height: var(--page-h);
     margin: 24px auto;
     background: #fff;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
-    display: grid;
-    grid-template-columns: var(--sidebar-w) 1fr;
+    overflow: hidden;
   }
-  .page::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end), var(--gradient-start));
-  }
+  .body { padding: 9mm 14mm 0; }
 
-  .icon {
-    flex-shrink: 0;
-    display: inline-flex;
-  }
-
-  /* ================= SIDEBAR ================= */
-  .sidebar {
-    background: var(--sidebar-bg);
-    color: var(--sidebar-text);
-    padding: 0.3in 0.35in 0.25in;
-  }
-
-  .avatar {
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    border: 2px solid rgba(255, 255, 255, 0.18);
+  /* ---------- header band ---------- */
+  .hero {
+    background: var(--navy);
     color: #fff;
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    margin: 0 0 12px;
+    padding: 11mm 14mm 9mm;
+    border-bottom: 4px solid var(--accent);
+    border-image: linear-gradient(90deg, var(--accent), var(--accent-2)) 1;
   }
-
   .name {
-    font-size: 21px;
-    font-weight: 800;
-    letter-spacing: 0.3px;
-    line-height: 1.25;
-    margin: 0 0 4px;
-    color: #fff;
-  }
-
-  .title {
-    font-size: 11.5px;
-    font-weight: 500;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: #9fb3e8;
-    margin: 0 0 22px;
-  }
-
-  .side-section { margin-bottom: 16px; }
-
-  .side-heading {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #fff;
-    margin: 0 0 10px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-  }
-  .side-heading .icon { color: #9fb3e8; }
-
-  .contact-list, .plain-list {
-    list-style: none;
     margin: 0;
-    padding: 0;
-    font-size: 11px;
-    line-height: 1.6;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    line-height: 1.1;
   }
-  .contact-list li {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 7px;
-    word-break: break-word;
-    color: var(--sidebar-muted);
-  }
-  .contact-list li .glyph {
-    flex-shrink: 0;
-    width: 16px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #9fb3e8;
-  }
-  .contact-list li a {
-    color: var(--sidebar-muted);
-    text-decoration: none;
-  }
-
-  .tag-group { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag {
-    font-size: 10px;
-    font-weight: 500;
-    padding: 4px 9px;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.08);
-    color: #dbe3f4;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-  }
-
-  .skill-block { margin-bottom: 12px; }
-  .skill-block:last-child { margin-bottom: 0; }
-  .skill-label {
-    font-size: 10.5px;
+  .role {
+    margin: 6px 0 14px;
+    font-size: 13px;
     font-weight: 600;
-    color: #dbe3f4;
-    margin: 0 0 6px;
+    color: #aab4ff;
+    letter-spacing: 0.2px;
   }
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-size: 10.5px;
+    color: #c9cfe4;
+  }
+  .contact a, .contact span { color: #c9cfe4; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+  .contact svg { width: 12px; height: 12px; stroke: #aab4ff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
-  .lang-row {
+  /* small header on page 2 */
+  .mini-hero {
     display: flex;
     justify-content: space-between;
-    font-size: 11px;
-    color: var(--sidebar-muted);
-    margin-bottom: 6px;
+    align-items: baseline;
+    padding: 9mm 14mm 4mm;
+    border-bottom: 1px solid var(--rule);
   }
-  .lang-row strong { color: #dbe3f4; font-weight: 500; }
+  .mini-hero strong { font-size: 15px; color: var(--ink); font-weight: 800; }
+  .mini-hero span { font-size: 10.5px; color: var(--muted); }
 
-  .plain-list li {
-    font-size: 11px;
-    color: var(--sidebar-muted);
-    line-height: 1.5;
-    margin-bottom: 8px;
-  }
-  .plain-list li strong { color: #dbe3f4; display: block; font-weight: 600; }
-  .plain-list .meta { font-size: 10px; color: #7c89a8; }
-
-  /* ================= MAIN ================= */
-  .main { padding: 0.26in 0.5in 0.1in 0.45in; }
-
-  .summary {
-    font-size: 11px;
-    line-height: 1.45;
-    color: var(--muted);
-    margin: 0 0 12px;
-  }
-
-  .section { margin-bottom: 10px; }
-  .section:last-child { margin-bottom: 0; }
-
+  /* ---------- sections ---------- */
+  .section { margin-bottom: 22px; }
   .section-heading {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    color: var(--accent);
     margin: 0 0 9px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--ink);
   }
-  .section-heading::after {
+  .section-heading::before {
     content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
+    width: 18px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
   }
-  .section-heading .icon { color: var(--accent-light); }
+  .section-heading::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
 
-  .entry { margin-bottom: 7px; page-break-inside: avoid; }
-  .entry:last-child { margin-bottom: 0; }
-
-  .entry-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 0;
-  }
-  .entry-title {
-    font-size: 12.5px;
-    font-weight: 700;
+  .summary {
+    margin: 0;
+    font-size: 11.3px;
+    line-height: 1.65;
     color: var(--text);
   }
-  .entry-title span {
-    font-weight: 500;
-    color: var(--accent-light);
-  }
-  .entry-date {
+  .summary b { color: var(--ink); font-weight: 600; }
+
+  /* skills */
+  .skills { display: grid; grid-template-columns: 92px 1fr; gap: 7px 12px; align-items: center; }
+  .skill-label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .chip {
     font-size: 10px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: #f3f4f8;
+    color: var(--text);
+    border: 1px solid var(--rule);
+  }
+  .chip.hot { background: var(--accent-soft); color: var(--accent); border-color: #d6daf9; font-weight: 600; }
+
+  /* experience */
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .job-title { font-size: 13px; font-weight: 700; color: var(--ink); }
+  .job-title span { font-weight: 500; color: var(--accent); }
+  .date {
+    font-size: 9.5px;
     font-weight: 600;
-    color: var(--muted);
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 999px;
     white-space: nowrap;
   }
-  .entry-sub {
-    font-size: 10.5px;
-    font-weight: 500;
-    color: var(--muted);
-    margin-bottom: 4px;
-  }
+  .job-sub { margin: 3px 0 10px; font-size: 10.5px; color: var(--muted); line-height: 1.5; }
+  .job-sub a { color: var(--accent); text-decoration: none; }
 
-  .bullets {
-    margin: 0;
-    padding-left: 15px;
-    font-size: 10.5px;
-    line-height: 1.42;
-    color: #333a45;
-  }
-  .bullets li { margin-bottom: 1px; }
-  .bullets li::marker { color: var(--accent-light); }
+  .area { margin: 0 0 11px; padding-left: 11px; border-left: 2px solid #dfe2fa; }
+  .area-title { margin: 0 0 3px; font-size: 10.5px; font-weight: 700; color: var(--accent); letter-spacing: 0.3px; }
+  .bullets { margin: 0; padding-left: 14px; font-size: 10.6px; line-height: 1.55; color: var(--text); }
+  .bullets li { margin-bottom: 1.5px; }
+  .bullets li::marker { color: #9aa3f0; }
 
-  .stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    margin-top: 4px;
-  }
-  .stack .chip {
-    font-size: 9px;
-    font-weight: 600;
-    padding: 2px 7px;
-    border-radius: 3px;
-    background: rgba(61, 85, 134, 0.07);
-    color: var(--accent-light);
-    border: 1px solid rgba(61, 85, 134, 0.16);
-  }
+  .earlier { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; font-size: 10.6px; }
+  .earlier .what { color: var(--text); }
+  .earlier .what b { color: var(--ink); font-weight: 600; }
+  .earlier .when { color: var(--muted); font-size: 10px; font-weight: 600; text-align: right; }
 
-  .edu-entry { margin-bottom: 12px; }
-  .edu-entry:last-child { margin-bottom: 0; }
-  .edu-degree { font-size: 12px; font-weight: 700; color: var(--text); }
-  .edu-school { font-size: 11px; color: var(--muted); margin-top: 1px; }
-  .edu-date { font-size: 10.5px; color: var(--muted); font-weight: 600; }
+  /* project cards */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .card {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+    padding: 13px 14px 12px;
+    page-break-inside: avoid;
+  }
+  .card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .card-title { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .badge { font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); }
+  .badge.work { color: #2f7d5b; }
+  .card-desc { margin: 5px 0 7px; font-size: 10.3px; line-height: 1.5; color: var(--text); }
+  .card-tech { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .card-tech .chip { font-size: 9px; padding: 2px 7px; }
+  .card-link { font-size: 9.5px; color: var(--accent); text-decoration: none; }
+
+  .trio { display: grid; grid-template-columns: 1.4fr 1fr 0.8fr; gap: 16px; }
+  .fact-title { font-size: 11.3px; font-weight: 700; color: var(--ink); }
+  .fact-sub { font-size: 10.3px; color: var(--muted); margin-top: 2px; line-height: 1.5; }
 
   /* ---------- print ---------- */
   @media print {
-    @page { size: letter; margin: 0; }
+    @page { size: A4; margin: 0; }
     html, body { background: #fff; }
     .toolbar { display: none; }
-    .page {
-      width: 100%;
-      min-height: 0;
-      margin: 0;
-      box-shadow: none;
-    }
-    .sidebar, .page::before, .stack .chip {
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-    .entry, .edu-entry { page-break-inside: avoid; }
+    .page { margin: 0; box-shadow: none; page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 </style>
 </head>
 <body>
-
-  <div class="toolbar no-print">
+  <div class="toolbar">
     <button onclick="window.print()">Print / Save as PDF</button>
-    <span>Add a LinkedIn/portfolio link under Contact if you have one, then export.</span>
+    <span>Paper: A4 · Margins: None · Background graphics: on</span>
   </div>
 
+  <!-- ================= PAGE 1 ================= -->
   <div class="page">
-
-    <!-- ================= SIDEBAR ================= -->
-    <aside class="sidebar">
-      <div class="avatar">KV</div>
-      <p class="name">Kiran Vinzoda</p>
-      <p class="title">Backend Developer — Python/FastAPI &amp; PHP/Yii2</p>
-
-      <div class="side-section">
-        <p class="side-heading">
-          <svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          Contact
-        </p>
-        <ul class="contact-list">
-          <li>
-            <span class="glyph"><svg class="icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
-            <a href="mailto:vinzodakiran4@gmail.com">vinzodakiran4@gmail.com</a>
-          </li>
-          <li>
-            <span class="glyph"><svg class="icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-            <a href="tel:+919879946630">+91 98799 46630</a>
-          </li>
-          <li>
-            <span class="glyph"><svg class="icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-            Bhuj, Gujarat, India
-          </li>
-          <li>
-            <span class="glyph"><svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM3.56 20.45h3.55V9H3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.22 0z"/></svg></span>
-            <a href="https://www.linkedin.com/in/kiran-vinzoda-75773252/">linkedin.com/in/kiran-vinzoda</a>
-          </li>
-          <li>
-            <span class="glyph"><svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.08 3.29 9.39 7.86 10.9.57.1.78-.25.78-.55v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.83 0c2.22-1.49 3.2-1.18 3.2-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.16v3.2c0 .3.21.66.79.55A11.5 11.5 0 0 0 23.5 12.02C23.5 5.74 18.27.5 12 .5z"/></svg></span>
-            <a href="https://github.com/kiranvinzoda4">github.com/kiranvinzoda4</a>
-          </li>
-          <li>
-            <span class="glyph"><svg class="icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
-            <a href="https://kiran-vinzoda.vercel.app/">kiran-vinzoda.vercel.app</a>
-          </li>
-        </ul>
+    <header class="hero">
+      <h1 class="name">Kiran Vinzoda</h1>
+      <div class="role">Senior Backend Engineer · Python · FastAPI · AI Integrations</div>
+      <div class="contact">
+        <a href="mailto:vinzodakiran4@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>vinzodakiran4@gmail.com</a>
+        <span><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+91 98799 46630</span>
+        <span><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Bhuj, Gujarat, India</span>
+        <a href="https://www.linkedin.com/in/kiran-vinzoda-75773252/"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>linkedin.com/in/kiran-vinzoda-75773252</a>
+        <a href="https://github.com/kiranvinzoda4"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3.1-.4 6.4-1.5 6.4-7a5.4 5.4 0 0 0-1.5-3.7 5 5 0 0 0-.1-3.8s-1.2-.3-3.9 1.5a13.4 13.4 0 0 0-7 0C6.3 1.7 5.1 2 5.1 2a5 5 0 0 0-.1 3.8A5.4 5.4 0 0 0 3.5 9.5c0 5.4 3.3 6.6 6.4 7a3.4 3.4 0 0 0-.9 2.6V22"/></svg>github.com/kiranvinzoda4</a>
+        <a href="https://kiran-vinzoda.vercel.app/"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg>kiran-vinzoda.vercel.app</a>
       </div>
+    </header>
 
-      <div class="side-section">
-        <p class="side-heading">
-          <svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
-          Skills
+    <div class="body">
+      <section class="section">
+        <h2 class="section-heading">Profile</h2>
+        <p class="summary">
+          Senior backend engineer with <b>5 years</b> of experience building production APIs, third-party integrations
+          and AI features. I build services in <b>Python (FastAPI, Django)</b> and lead backend development on
+          <b>Xpense</b>, an enterprise travel &amp; expense SaaS on AWS, where I built a Python <b>agentic AI assistant</b>
+          that creates, submits and approves trips and expenses through chat.
         </p>
-
-        <div class="skill-block">
-          <p class="skill-label">Backend</p>
-          <div class="tag-group">
-            <span class="tag">Python</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">PHP</span>
-            <span class="tag">Yii2</span>
-            <span class="tag">Laravel</span>
-          </div>
-        </div>
-
-        <div class="skill-block">
-          <p class="skill-label">Database</p>
-          <div class="tag-group">
-            <span class="tag">MySQL</span>
-            <span class="tag">PostgreSQL</span>
-          </div>
-        </div>
-
-        <div class="skill-block">
-          <p class="skill-label">Cloud &amp; DevOps</p>
-          <div class="tag-group">
-            <span class="tag">AWS</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Linux</span>
-            <span class="tag">Git</span>
-          </div>
-        </div>
-
-        <div class="skill-block">
-          <p class="skill-label">AI</p>
-          <div class="tag-group">
-            <span class="tag">Ollama</span>
-            <span class="tag">ChromaDB</span>
-            <span class="tag">OCR</span>
-            <span class="tag">LLM</span>
-            <span class="tag">RAG</span>
-          </div>
-        </div>
-
-        <div class="skill-block">
-          <p class="skill-label">Enterprise Integrations</p>
-          <div class="tag-group">
-            <span class="tag">WhatsApp Business API</span>
-            <span class="tag">SAP Integration</span>
-            <span class="tag">TBO Flight API</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="side-section">
-        <p class="side-heading">
-          <svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          Languages
-        </p>
-        <div class="lang-row"><strong>English</strong><span>Fluent</span></div>
-        <div class="lang-row"><strong>Hindi</strong><span>Native</span></div>
-        <div class="lang-row"><strong>Gujarati</strong><span>Native</span></div>
-      </div>
-    </aside>
-
-    <!-- ================= MAIN ================= -->
-    <main class="main">
-
-      <p class="summary">
-        Backend Developer with 4+ years of experience building enterprise SaaS platforms across both
-        Python (FastAPI) and PHP (Yii2, Laravel) ecosystems. Currently at AeonX Digital Solutions,
-        building multi-tenant SaaS products used by enterprise clients, with hands-on ownership of
-        approval-workflow engines, MySQL/PostgreSQL performance, AWS deployment, and third-party
-        integrations (WhatsApp Business API, SAP, TBO Flight API). Also builds AI-powered backend
-        features — RAG, OCR, and local LLMs — for document automation.
-      </p>
+      </section>
 
       <section class="section">
-        <h2 class="section-heading">
-          <svg class="icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          Experience
-        </h2>
+        <h2 class="section-heading">Skills</h2>
+        <div class="skills">
+          <div class="skill-label">Languages</div>
+          <div class="chips"><span class="chip hot">Python</span><span class="chip">PHP</span><span class="chip">SQL</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span></div>
+          <div class="skill-label">Backend</div>
+          <div class="chips"><span class="chip hot">FastAPI</span><span class="chip hot">Django</span><span class="chip">Yii2</span><span class="chip">Laravel</span><span class="chip">REST APIs</span><span class="chip">JWT</span><span class="chip">Webhooks</span></div>
+          <div class="skill-label">AI / ML</div>
+          <div class="chips"><span class="chip hot">Agentic AI</span><span class="chip hot">LangGraph</span><span class="chip hot">MCP</span><span class="chip">LiteLLM</span><span class="chip">AWS Bedrock</span><span class="chip">RAG</span><span class="chip">ChromaDB</span><span class="chip">FAISS</span><span class="chip">Ollama</span></div>
+          <div class="skill-label">AWS</div>
+          <div class="chips"><span class="chip hot">EC2</span><span class="chip hot">Lambda</span><span class="chip">S3</span><span class="chip">SES</span><span class="chip">DynamoDB</span><span class="chip">ECS</span></div>
+          <div class="skill-label">Data &amp; DevOps</div>
+          <div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span><span class="chip">Linux</span><span class="chip">Git</span></div>
+          <div class="skill-label">Frontend</div>
+          <div class="chips"><span class="chip">Next.js</span><span class="chip">React</span></div>
+        </div>
+      </section>
 
-        <div class="entry">
-          <div class="entry-head">
-            <p class="entry-title">Backend Developer <span>· AeonX Digital Solutions</span></p>
-            <p class="entry-date">Nov 2022 – Present</p>
-          </div>
-          <p class="entry-sub">Bhuj, India</p>
+      <section class="section">
+        <h2 class="section-heading">Experience</h2>
+        <div class="job-head">
+          <div class="job-title">Senior Backend Developer <span>· AeonX Digital Solutions</span></div>
+          <div class="date">Nov 2022 – Present</div>
+        </div>
+        <div class="job-sub">
+          Lead backend contributor to <a href="https://x-pense.cloud/">Xpense</a>, a multi-tenant travel &amp; expense SaaS
+          used by Raymond, Ashapura Group and other enterprises · MySQL, Docker, AWS (EC2, ECS, S3, SES)
+        </div>
+
+        <div class="area">
+          <div class="area-title">Agentic AI (Python)</div>
           <ul class="bullets">
-            <li>Develop and maintain multi-tenant enterprise SaaS platforms (Xpense, SignX) in Python (FastAPI) and PHP (Yii2), used by Raymond, Ashapura Group, and other enterprise clients.</li>
-            <li>Designed approval-workflow and policy-enforcement engines that significantly improved enterprise approval processes.</li>
-            <li>Integrated WhatsApp Business API, SAP systems, and TBO flight/hotel booking APIs for end-to-end enterprise workflow automation.</li>
-            <li>Designed and optimized complex MySQL/PostgreSQL schemas for high-volume enterprise SaaS applications, improving core API performance.</li>
-            <li>Built AI-powered document processing pipelines — OCR extraction and RAG-based retrieval over ChromaDB with local LLMs via Ollama.</li>
-            <li>Architected and deployed scalable backend services on AWS.</li>
+            <li>Built an agentic AI assistant in Python (FastAPI, LangGraph, LiteLLM on AWS Bedrock) that creates trips and expenses, links expenses to trips, submits them for approval and lets managers approve — all through chat.</li>
+            <li>Added conversation memory so the agent remembers recent trips, expenses and reports across multi-step workflows.</li>
+            <li>Built the MCP server in Xpense (50+ tools) that the agent uses to act on the platform safely, on behalf of the logged-in user.</li>
           </ul>
         </div>
 
-        <div class="entry">
-          <div class="entry-head">
-            <p class="entry-title">Earlier Experience</p>
-          </div>
+        <div class="area">
+          <div class="area-title">Flight &amp; Hotel Booking</div>
           <ul class="bullets">
-            <li>Assistant Lecturer, Veerayatan Institute, Mandvi (Aug 2021 – Nov 2022) — taught programming and web development to undergraduate BCA students.</li>
-            <li>Web Developer, Chivalry Technology (Sep 2016 – Sep 2017) — built backend systems in Python/Django, delivered full-stack client solutions.</li>
-            <li>Computer Teacher, J.P. &amp; L.S. Highschool, Bhuj (Jul 2015 – Apr 2016) — taught computer science to high school students.</li>
+            <li>Built end-to-end flight booking: search, fares, seat &amp; meal selection, ticketing and cancellations.</li>
+            <li>Flights are booked automatically the moment a trip request is approved.</li>
+            <li>Designed one adapter layer for the TBO and TripJack APIs, so new suppliers plug in easily.</li>
+            <li>Built hotel booking: search, hold, confirm, vouchers and cancellations.</li>
+          </ul>
+        </div>
+
+        <div class="area">
+          <div class="area-title">Payments &amp; Finance</div>
+          <ul class="bullets">
+            <li>Integrated Razorpay for personal flight and hotel bookings: payment orders, checkout, server-side verification, webhooks and round-trip payments.</li>
+            <li>Integrated OmniCard prepaid corporate cards; approved top-ups post to SAP automatically.</li>
+            <li>Built the SAP posting outbox for booking invoices, cancellations and taxes.</li>
           </ul>
         </div>
       </section>
 
       <section class="section">
-        <h2 class="section-heading">
-          <svg class="icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          Projects
-        </h2>
-
-        <div class="entry">
-          <div class="entry-head">
-            <p class="entry-title">Xpense — Enterprise SaaS Platform <span>· AeonX Digital Solutions</span></p>
-            <p class="entry-date">2022 – Present</p>
-          </div>
-          <ul class="bullets">
-            <li>Multi-tenant expense and travel management SaaS trusted by Raymond, Ashapura Group, and other enterprises.</li>
-            <li>Built in Python (FastAPI) and PHP (Yii2); approval workflows and policy engine significantly streamlined enterprise approval processes.</li>
-            <li>Integrated WhatsApp Business API, SAP, and TBO flight/hotel booking APIs; optimized MySQL for high-traffic API performance.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">PHP</span><span class="chip">Yii2</span><span class="chip">MySQL</span><span class="chip">AWS</span><span class="chip">WhatsApp API</span><span class="chip">SAP</span><span class="chip">TBO API</span>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-head">
-            <p class="entry-title">SignX — Digital Signature Platform <span>· AeonX Digital Solutions</span></p>
-            <p class="entry-date">2022</p>
-          </div>
-          <ul class="bullets">
-            <li>Built backend in Python (FastAPI) for bulk signing, workflow automation, and secure API access for enterprise document signing.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">MySQL</span>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-head">
-            <p class="entry-title">DocIQ – AI Document Analysis <span>· Personal Project</span></p>
-            <p class="entry-date">2024</p>
-          </div>
-          <ul class="bullets">
-            <li>AI platform to upload PDFs/images and query them via RAG-based retrieval, vector search, OCR extraction, and local LLM inference (Ollama).</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">ChromaDB</span><span class="chip">Ollama</span><span class="chip">RAG</span><span class="chip">OCR</span>
-          </div>
+        <h2 class="section-heading">Earlier Roles</h2>
+        <div class="earlier">
+          <div class="what"><b>Assistant Lecturer</b> · Veerayatan Institute, Mandvi — taught Python &amp; web development</div>
+          <div class="when">Aug 2021 – Nov 2022</div>
+          <div class="what"><b>Web Developer</b> · Chivalry Technology, Bangalore — Python/Django backends</div>
+          <div class="when">Sep 2016 – Sep 2017</div>
+          <div class="what"><b>Computer Teacher</b> · J.P. &amp; L.S. Highschool, Bhuj</div>
+          <div class="when">Jul 2015 – Apr 2016</div>
         </div>
       </section>
-
-      <section class="section">
-        <h2 class="section-heading">
-          <svg class="icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.1 2.69 2 6 2s6-.9 6-2v-5"/></svg>
-          Education
-        </h2>
-        <div class="edu-entry">
-          <div class="entry-head">
-            <p class="edu-degree">Computer Science and Engineering</p>
-            <p class="edu-date">2013</p>
-          </div>
-          <p class="edu-school">Government Engineering College, Patan (GTU)</p>
-        </div>
-      </section>
-
-    </main>
+    </div>
   </div>
 
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page">
+    <div class="mini-hero">
+      <strong>Kiran Vinzoda</strong>
+      <span>vinzodakiran4@gmail.com · +91 98799 46630</span>
+    </div>
+
+    <div class="body">
+      <section class="section">
+        <h2 class="section-heading">Python Projects</h2>
+        <div class="cards">
+          <div class="card">
+            <div class="card-top"><div class="card-title">Unnati Enterprise — ServiceFlow</div><div class="badge work">Freelance</div></div>
+            <p class="card-desc">Service-management platform for a solar &amp; RO water company: sales and installation scheduling, service requests with technician assignment, activity and spare-part logs, and role-based admin access. WhatsApp OTP login, Firebase push notifications, PDF and Excel exports, rate limiting.</p>
+            <div class="card-tech"><span class="chip">FastAPI</span><span class="chip">SQLAlchemy</span><span class="chip">MySQL</span><span class="chip">Firebase</span><span class="chip">S3</span></div>
+            <a class="card-link" href="https://unnatienterprise.com/">unnatienterprise.com</a>
+          </div>
+
+          <div class="card">
+            <div class="card-top"><div class="card-title">Ziba Comfort</div><div class="badge work">Freelance</div></div>
+            <p class="card-desc">Furniture e-commerce backend: products with fabric, size, colour and warranty options, orders with custom measurements, wishlist and reviews, a multi-level referral program, offers and coupons, and callback requests.</p>
+            <div class="card-tech"><span class="chip">FastAPI</span><span class="chip">SQLAlchemy</span><span class="chip">MySQL</span><span class="chip">S3</span></div>
+            <a class="card-link" href="https://www.zibacomfort.com/">zibacomfort.com</a>
+          </div>
+          <div class="card">
+            <div class="card-top"><div class="card-title">SignX</div><div class="badge work">AeonX</div></div>
+            <p class="card-desc">Digital signature platform for enterprises — bulk signing, approval workflows and secure API access.</p>
+            <div class="card-tech"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">MySQL</span></div>
+            <a class="card-link" href="https://www.aeonx.digital/signx-buy-now/">aeonx.digital/signx</a>
+          </div>
+
+          <div class="card">
+            <div class="card-top"><div class="card-title">DailyVeg</div><div class="badge work">Freelance</div></div>
+            <p class="card-desc">Complete backend for a vegetable delivery app — ordering, scheduling, delivery assignment and live tracking.</p>
+            <div class="card-tech"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">MySQL</span></div>
+            <a class="card-link" href="https://play.google.com/store/apps/details?id=com.dailyveg.customer">Live on Google Play</a>
+          </div>
+
+          <div class="card">
+            <div class="card-top"><div class="card-title">DocIQ</div><div class="badge">Personal</div></div>
+            <p class="card-desc">Chat with your PDFs and images using RAG, OCR and a local LLM, with JWT + email OTP login.</p>
+            <div class="card-tech"><span class="chip">FastAPI</span><span class="chip">ChromaDB</span><span class="chip">Ollama</span><span class="chip">Next.js</span></div>
+            <a class="card-link" href="https://github.com/kiranvinzoda4/ai_tasks">github.com/kiranvinzoda4/ai_tasks</a>
+          </div>
+
+          <div class="card">
+            <div class="card-top"><div class="card-title">SmartGallery</div><div class="badge">Personal</div></div>
+            <p class="card-desc">AI photo gallery that recognises faces and groups photos by person automatically.</p>
+            <div class="card-tech"><span class="chip">FastAPI</span><span class="chip">InsightFace</span><span class="chip">FAISS</span></div>
+            <a class="card-link" href="https://github.com/kiranvinzoda4/SmartGalleryWithAi">github.com/kiranvinzoda4/SmartGalleryWithAi</a>
+          </div>
+
+          <div class="card">
+            <div class="card-top"><div class="card-title">SmartAttend</div><div class="badge">Personal</div></div>
+            <p class="card-desc">Contactless face-recognition attendance for HR, with employee records and analytics.</p>
+            <div class="card-tech"><span class="chip">FastAPI</span><span class="chip">InsightFace</span><span class="chip">FAISS</span></div>
+            <a class="card-link" href="https://github.com/kiranvinzoda4/SmartAttend">github.com/kiranvinzoda4/SmartAttend</a>
+          </div>
+
+          <div class="card">
+            <div class="card-top"><div class="card-title">MailTone AI</div><div class="badge">Personal</div></div>
+            <p class="card-desc">Detects the tone of an email and rewrites it in any of 16 tones.</p>
+            <div class="card-tech"><span class="chip">FastAPI</span><span class="chip">DistilBERT</span><span class="chip">Phi-3</span></div>
+            <a class="card-link" href="https://github.com/kiranvinzoda4/MailTone_AI">github.com/kiranvinzoda4/MailTone_AI</a>
+          </div>
+
+
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="trio">
+          <div>
+            <h2 class="section-heading">Award</h2>
+            <div class="fact-title">Ashapura Conquer Superstar Award · 2024</div>
+            <div class="fact-sub">Ashapura Group of Industries — for outstanding contribution to enterprise SaaS at AeonX.</div>
+          </div>
+          <div>
+            <h2 class="section-heading">Education</h2>
+            <div class="fact-title">Computer Science &amp; Engineering</div>
+            <div class="fact-sub">Government Engineering College, Patan (GTU) · 2013</div>
+          </div>
+          <div>
+            <h2 class="section-heading">Languages</h2>
+            <div class="fact-sub">English · Hindi · Gujarati</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </body>
 </html>

@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kiran Vinzoda | Backend Developer",
+  title: "Kiran Vinzoda | Senior Backend Developer",
   description:
-    "Backend Developer specializing in Python, FastAPI, AWS, and scalable SaaS architectures.",
+    "Senior Backend Developer specializing in Python, FastAPI, AWS, and scalable SaaS architectures.",
 };
 
 export default function RootLayout({

@@ -2,7 +2,7 @@ import type { AboutData } from "@/types/portfolio";
 
 export const aboutData: AboutData = {
   intro:
-    "Backend Developer with 4+ years of experience building scalable applications using Python, FastAPI, and Django. Currently at AeonX Digital Solutions, developing enterprise SaaS platforms with cloud integration and AI-powered features.",
+    "Senior Backend Developer with 5+ years of experience building scalable applications using Python, FastAPI, and Django. Currently at AeonX Digital Solutions, developing enterprise SaaS platforms with cloud integration and AI-powered features.",
   focusAreas: [
     "API design & performance optimization",
     "Database architecture — MySQL, PostgreSQL",
@@ -11,7 +11,7 @@ export const aboutData: AboutData = {
     "System design for high-traffic applications",
   ],
   stats: [
-    { label: "Years Experience", value: "4+" },
+    { label: "Years Experience", value: "5+" },
     { label: "Live Products", value: "4" },
     { label: "AI Projects Built", value: "4" },
   ],
