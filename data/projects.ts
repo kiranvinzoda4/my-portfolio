@@ -47,7 +47,7 @@ export const projects: Project[] = [
       "Furniture e-commerce backend — products with fabric, size, colour and warranty options, orders with custom measurements, wishlist and reviews, a multi-level referral program, offers and coupons, and callback requests.",
     tech: ["Python", "FastAPI", "SQLAlchemy", "MySQL", "S3"],
     live: "https://www.zibacomfort.com/",
-    category: "company",
+    category: "personal",
   },
   {
     title: "Unnati Enterprise — ServiceFlow",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
       "Service-management platform for a solar and RO water company — sales and installation scheduling, service requests with technician assignment, activity and spare-part logs, role-based admin access, WhatsApp OTP login, Firebase push notifications, and PDF/Excel exports.",
     tech: ["Python", "FastAPI", "SQLAlchemy", "MySQL", "Firebase"],
     live: "https://unnatienterprise.com/",
-    category: "company",
+    category: "personal",
   },
   {
     title: "DocIQ \u2013 AI File Analysis",

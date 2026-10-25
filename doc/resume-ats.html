@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kiran Vinzoda — Resume</title>
+<!--
+  Plain, single-column version for job portals and ATS / AI resume parsers.
+  No columns, chips, icons or tables: every line reads top to bottom as plain text.
+-->
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    line-height: 1.32;
+    color: #000;
+  }
+  .page { max-width: 210mm; margin: 0 auto; padding: 14mm 16mm; }
+  h1 { margin: 0; font-size: 20pt; }
+  .role { margin: 2px 0 6px; font-size: 11.5pt; font-weight: bold; }
+  .contact { margin: 0; }
+  a { color: #000; text-decoration: none; white-space: nowrap; }
+  h2 {
+    margin: 11px 0 5px;
+    padding-bottom: 2px;
+    font-size: 11.5pt;
+    text-transform: uppercase;
+    border-bottom: 1px solid #000;
+  }
+  h3 { margin: 6px 0 1px; font-size: 10.5pt; }
+  p { margin: 0 0 4px; }
+  ul { margin: 2px 0 4px; padding-left: 18px; }
+  li { margin-bottom: 1px; }
+  .meta { margin: 0 0 3px; }
+  .sub { margin: 4px 0 1px; font-weight: bold; font-style: italic; }
+  @media print {
+    @page { size: A4; margin: 12mm 15mm; }
+    .page { padding: 0; max-width: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Kiran Vinzoda</h1>
+  <div class="role">Senior Python Backend Engineer | FastAPI | AWS | Agentic AI | LLM Integrations</div>
+  <p class="contact">
+    Bhuj, Gujarat, India (open to remote and relocation)<br>
+    Phone: +91 98799 46630 | Email: <a href="mailto:vinzodakiran4@gmail.com">vinzodakiran4@gmail.com</a><br>
+    LinkedIn: <a href="https://www.linkedin.com/in/kiran-vinzoda-75773252/">linkedin.com/in/kiran-vinzoda-75773252</a> |
+    GitHub: <a href="https://github.com/kiranvinzoda4">github.com/kiranvinzoda4</a> |
+    Portfolio: <a href="https://kiran-vinzoda.vercel.app/">kiran-vinzoda.vercel.app</a>
+  </p>
+
+  <h2>Summary</h2>
+  <p>
+    Python backend engineer with 5 years of experience building production APIs, enterprise SaaS platforms,
+    third-party integrations and AI-powered workflows, using Python, FastAPI, Django, MySQL and AWS. Built an agentic
+    AI assistant with LangGraph, LiteLLM and AWS Bedrock, backed by an MCP server with 50+ tools for trip and expense
+    workflows. Strong background in flight and hotel booking, payment processing and enterprise integrations such as SAP.
+  </p>
+
+  <h2>Skills</h2>
+  <p><b>Backend:</b> Python, FastAPI, Django, SQLAlchemy, Pydantic, Alembic, REST APIs, Async, JWT / OTP authentication, Webhooks, Pytest</p>
+  <p><b>AI &amp; LLM:</b> Agentic AI, LangGraph, MCP (Model Context Protocol), LiteLLM, AWS Bedrock, RAG, ChromaDB, FAISS, Ollama, InsightFace, OCR</p>
+  <p><b>Cloud &amp; DevOps:</b> AWS (EC2, Lambda, S3, SES, ECS, DynamoDB), Docker, Linux, Git</p>
+  <p><b>Databases &amp; Integrations:</b> MySQL, PostgreSQL, SQL, Razorpay, SAP, Firebase, WhatsApp API, TBO and TripJack APIs</p>
+  <p><b>Also:</b> PHP, Yii2, Laravel, JavaScript, TypeScript, React, Next.js</p>
+
+  <h2>Work Experience</h2>
+  <h3>Senior Backend Developer, AeonX Digital Solutions</h3>
+  <p class="meta">Nov 2022 – Present | Bhuj, Gujarat, India</p>
+  <p>Lead backend contributor to Xpense, a multi-tenant travel and expense SaaS used by Raymond, Ashapura Group and other enterprises. Stack: Python, FastAPI, MySQL, Docker, AWS (EC2, ECS, S3, SES).</p>
+  <p class="sub">Agentic AI</p>
+  <ul>
+    <li>Developed an agentic AI assistant in Python (FastAPI, LangGraph, LiteLLM, AWS Bedrock) that runs trip and expense workflows through natural-language chat.</li>
+    <li>Implemented an MCP server with 50+ tools that lets the assistant use platform features on behalf of the authenticated user.</li>
+    <li>Added conversation memory to support multi-step workflows across trips, expenses and reports.</li>
+    <li>Integrated approval workflows so managers can review and approve trip and expense requests through chat.</li>
+  </ul>
+  <p class="sub">Flight and Hotel Booking</p>
+  <ul>
+    <li>Developed end-to-end flight booking (search, fare quotes and rules, seat and meal selection, ticketing, cancellations and change requests) on supplier APIs.</li>
+    <li>Automated booking on approval, removing a manual step for the travel desk once a trip request is approved.</li>
+    <li>Designed a provider-adapter layer over the TBO and TripJack APIs so suppliers can be added or switched without changing booking logic.</li>
+    <li>Developed hotel booking workflows covering search, reservation holds, confirmation, voucher generation and cancellations.</li>
+  </ul>
+  <p class="sub">Payments and Finance</p>
+  <ul>
+    <li>Integrated Razorpay for personal flight and hotel bookings: order creation, checkout, server-side payment verification, webhooks and round-trip payments.</li>
+    <li>Integrated OmniCard prepaid corporate cards so approved top-ups automatically create advances and post to SAP.</li>
+    <li>Built an SAP posting outbox that sends booking invoices, cancellations and tax entries to SAP finance.</li>
+  </ul>
+
+  <h3>Assistant Lecturer, Veerayatan Institute</h3>
+  <p class="meta">Aug 2021 – Nov 2022 | Mandvi, Gujarat, India</p>
+  <ul><li>Taught Python and web development.</li></ul>
+
+  <h3>Web Developer, Chivalry Technology</h3>
+  <p class="meta">Sep 2016 – Sep 2017 | Bangalore, Karnataka, India</p>
+  <ul><li>Built Python and Django backends.</li></ul>
+
+  <h3>Computer Teacher, J.P. &amp; L.S. Highschool</h3>
+  <p class="meta">Jul 2015 – Apr 2016 | Bhuj, Gujarat, India</p>
+
+  <h2>Education</h2>
+  <h3>Bachelor of Engineering (B.E.), Computer Science and Engineering</h3>
+  <p class="meta">Government Engineering College, Patan | Gujarat Technological University (GTU) | 2009 – 2013</p>
+
+  <h2>Projects</h2>
+  <h3>Unnati Enterprise – ServiceFlow (Personal) | unnatienterprise.com</h3>
+  <p>Service-management platform for a solar and RO water company. Tech: Python, FastAPI, SQLAlchemy, Alembic, MySQL, Firebase, AWS S3, Pytest.</p>
+  <ul>
+    <li>Customers, products, sales, and installation scheduling with rescheduling.</li>
+    <li>Service requests with technician assignment, activity logs, spare-part tracking and duplicate-request detection.</li>
+    <li>Role-based admin permissions, WhatsApp OTP login with rate limiting, Firebase push notifications, PDF and Excel exports.</li>
+  </ul>
+
+  <h3>Ziba Comfort (Personal) | zibacomfort.com</h3>
+  <p>E-commerce backend for a premium furniture and interior design company. Tech: Python, FastAPI, SQLAlchemy, MySQL, AWS S3.</p>
+  <ul>
+    <li>Product catalogue with fabric, size, colour and warranty options; orders with custom measurements, wishlist and reviews.</li>
+    <li>Multi-level referral program with partners, offers and coupon tracking, ads and callback requests.</li>
+  </ul>
+
+  <h3>DocIQ – Document Intelligence (Personal) | github.com/kiranvinzoda4/ai_tasks</h3>
+  <p>Chat with your own PDFs and images using retrieval-augmented generation (RAG). Tech: Python, FastAPI, ChromaDB, Ollama, OCR, Next.js.</p>
+  <ul>
+    <li>PDF and image upload, OCR text extraction and embeddings stored in ChromaDB.</li>
+    <li>Answers grounded in the uploaded documents from a local LLM through Ollama; JWT authentication with email OTP.</li>
+  </ul>
+
+  <h3>SmartAttend – Face Recognition Attendance (Personal) | github.com/kiranvinzoda4/SmartAttend</h3>
+  <p>Contactless HR attendance using computer vision. Tech: Python, FastAPI, InsightFace, FAISS.</p>
+  <ul>
+    <li>Face enrolment and webcam check-in using InsightFace embeddings and FAISS similarity search.</li>
+  </ul>
+
+  <h3>Other Projects</h3>
+  <ul>
+    <li><b>SignX (AeonX):</b> enterprise digital signature platform with bulk signing, approval workflows and secure API access. Python, FastAPI, MySQL.</li>
+    <li><b>SmartGallery (Personal):</b> AI photo gallery that recognises faces and groups photos by person. FastAPI, InsightFace, FAISS.</li>
+    <li><b>MailTone AI (Personal):</b> detects email emotion with DistilBERT and rewrites it in 16 tones with Phi-3 Mini. FastAPI, Ollama.</li>
+  </ul>
+
+  <h2>Awards</h2>
+  <p>Ashapura Conquer Superstar Award, Ashapura Group of Industries (2024) – for outstanding contribution to enterprise SaaS at AeonX.</p>
+
+  <h2>Languages</h2>
+  <p>English, Hindi, Gujarati</p>
+</div>
+</body>
+</html>

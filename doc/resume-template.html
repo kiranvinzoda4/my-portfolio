@@ -209,17 +209,14 @@
 
   .proj { margin-bottom: 10px; padding-top: 10px; padding-bottom: 9px; }
   .other-heading { margin: 4px 0 7px; font-size: 11px; }
-  .mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .mini-grid { display: grid; grid-template-columns: 1fr; gap: 6px; }
   .mini-proj { border: 1px solid var(--rule); border-radius: 8px; padding: 8px 11px; page-break-inside: avoid; }
   .mini-title { font-size: 11.3px; font-weight: 700; color: var(--ink); }
   .mini-proj .proj-badge { font-size: 7.5px; padding: 1px 6px; margin-left: 6px; }
   .mini-proj .proj-link { font-size: 9px; }
-  .mini-desc { margin: 3px 0 5px; font-size: 9.9px; line-height: 1.45; color: var(--text); }
+  .mini-desc { margin: 2px 0 4px; font-size: 9.9px; line-height: 1.45; color: var(--text); }
   .mini-proj .chip { font-size: 8.5px; padding: 1px 7px; }
 
-  .trio { display: grid; grid-template-columns: 1.4fr 1fr 0.8fr; gap: 16px; margin-top: 6px; }
-  .fact-title { font-size: 11.3px; font-weight: 700; color: var(--ink); }
-  .fact-sub { font-size: 10.3px; color: var(--muted); margin-top: 2px; line-height: 1.5; }
 
   /* ---------- print ---------- */
   @media print {
@@ -255,7 +252,7 @@
 
     <div class="body">
       <section class="section">
-        <h2 class="section-heading">Profile</h2>
+        <h2 class="section-heading">Summary</h2>
         <p class="summary">
           Python backend engineer with <b>5 years</b> of experience building production APIs, enterprise SaaS platforms,
           third-party integrations and AI-powered workflows, using <b>Python, FastAPI, Django, MySQL and AWS</b>. Built an
@@ -282,7 +279,7 @@
       </section>
 
       <section class="section">
-        <h2 class="section-heading">Experience</h2>
+        <h2 class="section-heading">Work Experience</h2>
         <div class="job-head">
           <div class="job-title">Senior Backend Developer <span>· AeonX Digital Solutions</span></div>
           <div class="date">Nov 2022 – Present</div>
@@ -323,7 +320,7 @@
       </section>
 
       <section class="section">
-        <h2 class="section-heading">Earlier Roles</h2>
+        <h2 class="section-heading">Previous Experience</h2>
         <div class="earlier">
           <div class="what"><b>Assistant Lecturer</b> · Veerayatan Institute, Mandvi — taught Python &amp; web development</div>
           <div class="when">Aug 2021 – Nov 2022</div>
@@ -348,8 +345,8 @@
         <h2 class="section-heading">Key Projects</h2>
         <div class="proj">
           <div class="proj-head">
-            <div class="proj-title">Unnati Enterprise — ServiceFlow<span class="proj-badge">Freelance</span></div>
-            <a class="proj-link" href="https://unnatienterprise.com/">unnatienterprise.com ↗</a>
+            <div class="proj-title">Unnati Enterprise — ServiceFlow<span class="proj-badge personal">Personal</span></div>
+            <a class="proj-link" href="https://unnatienterprise.com/">unnatienterprise.com</a>
           </div>
           <p class="proj-tagline">Service-management platform for a solar and RO water company, live and in active development.</p>
           <ul class="bullets">
@@ -361,8 +358,8 @@
         </div>
         <div class="proj">
           <div class="proj-head">
-            <div class="proj-title">Ziba Comfort<span class="proj-badge">Freelance</span></div>
-            <a class="proj-link" href="https://www.zibacomfort.com/">zibacomfort.com ↗</a>
+            <div class="proj-title">Ziba Comfort<span class="proj-badge personal">Personal</span></div>
+            <a class="proj-link" href="https://www.zibacomfort.com/">zibacomfort.com</a>
           </div>
           <p class="proj-tagline">E-commerce backend for a premium furniture and interior design company.</p>
           <ul class="bullets">
@@ -375,7 +372,7 @@
         <div class="proj">
           <div class="proj-head">
             <div class="proj-title">DocIQ — Document Intelligence<span class="proj-badge personal">Personal</span></div>
-            <a class="proj-link" href="https://github.com/kiranvinzoda4/ai_tasks">GitHub ↗</a>
+            <a class="proj-link" href="https://github.com/kiranvinzoda4/ai_tasks">github.com/kiranvinzoda4/ai_tasks</a>
           </div>
           <p class="proj-tagline">Chat with your own PDFs and images using retrieval-augmented generation.</p>
           <ul class="bullets">
@@ -388,7 +385,7 @@
         <div class="proj">
           <div class="proj-head">
             <div class="proj-title">SmartAttend — Face Recognition Attendance<span class="proj-badge personal">Personal</span></div>
-            <a class="proj-link" href="https://github.com/kiranvinzoda4/SmartAttend">GitHub ↗</a>
+            <a class="proj-link" href="https://github.com/kiranvinzoda4/SmartAttend">github.com/kiranvinzoda4/SmartAttend</a>
           </div>
           <p class="proj-tagline">Contactless HR attendance using computer vision.</p>
           <ul class="bullets">
@@ -402,7 +399,7 @@
           <div class="mini-proj">
             <div class="proj-head">
               <div class="mini-title">SignX<span class="proj-badge">AeonX</span></div>
-              <a class="proj-link" href="https://www.aeonx.digital/signx-buy-now/">aeonx.digital ↗</a>
+              <a class="proj-link" href="https://www.aeonx.digital/signx-buy-now/">aeonx.digital</a>
             </div>
             <p class="mini-desc">Enterprise digital signature platform: bulk signing, configurable approval workflows and secure API access.</p>
             <div class="proj-tech"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">MySQL</span></div>
@@ -410,7 +407,7 @@
           <div class="mini-proj">
             <div class="proj-head">
               <div class="mini-title">SmartGallery<span class="proj-badge personal">Personal</span></div>
-              <a class="proj-link" href="https://github.com/kiranvinzoda4/SmartGalleryWithAi">GitHub ↗</a>
+              <a class="proj-link" href="https://github.com/kiranvinzoda4/SmartGalleryWithAi">github.com/kiranvinzoda4/SmartGalleryWithAi</a>
             </div>
             <p class="mini-desc">AI photo gallery that recognises faces and groups photos by person, improving as users label people.</p>
             <div class="proj-tech"><span class="chip">FastAPI</span><span class="chip">InsightFace</span><span class="chip">FAISS</span></div>
@@ -418,7 +415,7 @@
           <div class="mini-proj">
             <div class="proj-head">
               <div class="mini-title">MailTone AI<span class="proj-badge personal">Personal</span></div>
-              <a class="proj-link" href="https://github.com/kiranvinzoda4/MailTone_AI">GitHub ↗</a>
+              <a class="proj-link" href="https://github.com/kiranvinzoda4/MailTone_AI">github.com/kiranvinzoda4/MailTone_AI</a>
             </div>
             <p class="mini-desc">Detects the emotion in an email with DistilBERT and rewrites it in any of 16 tones with Phi-3 Mini.</p>
             <div class="proj-tech"><span class="chip">FastAPI</span><span class="chip">DistilBERT</span><span class="chip">Phi-3</span><span class="chip">Ollama</span></div>
@@ -427,21 +424,20 @@
       </section>
 
       <section class="section">
-        <div class="trio">
-          <div>
-            <h2 class="section-heading">Award</h2>
-            <div class="fact-title">Ashapura Conquer Superstar Award · 2024</div>
-            <div class="fact-sub">Ashapura Group of Industries — for outstanding contribution to enterprise SaaS at AeonX.</div>
-          </div>
-          <div>
-            <h2 class="section-heading">Education</h2>
-            <div class="fact-title">Computer Science &amp; Engineering</div>
-            <div class="fact-sub">Government Engineering College, Patan (GTU) · 2013</div>
-          </div>
-          <div>
-            <h2 class="section-heading">Languages</h2>
-            <div class="fact-sub">English · Hindi · Gujarati</div>
-          </div>
+        <h2 class="section-heading">Education</h2>
+        <div class="earlier">
+          <div class="what"><b>Bachelor of Engineering (B.E.), Computer Science &amp; Engineering</b><br>Government Engineering College, Patan · Gujarat Technological University (GTU)</div>
+          <div class="when">2009 – 2013</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-heading">Award &amp; Languages</h2>
+        <div class="earlier">
+          <div class="what"><b>Ashapura Conquer Superstar Award</b> · Ashapura Group of Industries — for outstanding contribution to enterprise SaaS at AeonX</div>
+          <div class="when">2024</div>
+          <div class="what"><b>Languages:</b> English, Hindi, Gujarati</div>
+          <div class="when"></div>
         </div>
       </section>
     </div>
