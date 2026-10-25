@@ -72,8 +72,6 @@ Aeonx Digital Solutions, Bhuj.
 61 Days
 Signx
 Aeonx Digital Solutions, Bhuj.
-40 Days Dailyveg
-Local Vender
 Xpense is a cloud-based SaaS platform for managing employee
 expenses, travel requests, approvals, and reporting with end-to-end
 workflow automation.
@@ -94,16 +92,6 @@ Provides secure API access for automation, helping organizations
 improve operational efficiency while maintaining high compliance
 standards.
 https://www.aeonx.digital/signx-buy-now/
-Developed and deployed the complete backend for an online
-vegetable selling and delivery app using FastAPI on Hostinger,
-supporting customers, admins, and delivery partners.
-Implemented key features such as address management, futuredated order scheduling, and real-time order status tracking, ensuring
-smooth and reliable operations.
-Enabled efficient workflows for product management, delivery
-assignments, and order fulfillment, resulting in a seamless user
-experience across the platform.
-https://play.google.com/store/apps/details?
-id=com.dailyveg.customer
 JUL 2015 - APR 2016 PROJECTS
 DocIQ 30 DAYS
 Personal Project

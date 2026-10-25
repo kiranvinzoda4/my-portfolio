@@ -42,14 +42,6 @@ export const projects: Project[] = [
     category: "company",
   },
   {
-    title: "DailyVeg",
-    description:
-      "Backend for an online vegetable delivery app. Built APIs for customer ordering, admin management, delivery partner assignment, and real-time order tracking.",
-    tech: ["Python", "FastAPI", "MySQL"],
-    live: "https://play.google.com/store/apps/details?id=com.dailyveg.customer",
-    category: "company",
-  },
-  {
     title: "Ziba Comfort",
     description:
       "Furniture e-commerce backend — products with fabric, size, colour and warranty options, orders with custom measurements, wishlist and reviews, a multi-level referral program, offers and coupons, and callback requests.",
